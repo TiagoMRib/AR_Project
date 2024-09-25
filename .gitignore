@@ -1,0 +1,11 @@
+# Unity generated files
+Library/
+Temp/
+Obj/
+Logs/
+MemoryCaptures/
+Build/
+
+# Asset packages
+*.tgz
+*.unitypackage
