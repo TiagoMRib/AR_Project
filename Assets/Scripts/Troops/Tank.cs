@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class TankTroop : BaseTroop
 {
-    public string troopType = "Mechanic"; // Troop type specific to Tank
-    public bool isGroundTroop = true;     // Tanks are ground troops
 
     protected override void Start()
     {
         base.Start();
         // Additional setup specific to TankTroop
-        Debug.Log("Tank Troop Created - Type: " + troopType);
+        Debug.Log("Tank Troop Created");
     }
 
     // Tank targets only enemy buildings
@@ -36,5 +34,11 @@ public class TankTroop : BaseTroop
         Debug.Log("Tank is moving towards the target.");
 
         base.MoveTowardsTarget();  // Call base movement
+    }
+
+    // Overriding the Attack method for the Tank troop to
+    protected override void Attack()
+    {
+        //Tank attack 
     }
 }
