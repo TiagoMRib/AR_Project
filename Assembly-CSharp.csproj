@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Buildings\MainCastle.cs" />
     <Compile Include="Assets\Scripts\Troops\BaseTroop.cs" />
     <Compile Include="Assets\Scripts\Troops\Tank.cs" />
+    <Compile Include="Assets\Scripts\Buildings\RoadBlock.cs" />
     <Compile Include="Assets\Scripts\Troops\Bat.cs" />
     <Compile Include="Assets\Scripts\Buildings\BaseBuilding.cs" />
   </ItemGroup>

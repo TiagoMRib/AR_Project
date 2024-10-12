@@ -31,6 +31,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5690512564178100026}
+  - {fileID: 2429540918983929090}
+  - {fileID: 8808772221372062859}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4995902368276513574
@@ -47,10 +49,148 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingName: Main Castle
   maxHealth: 2000
-  buildingType: 
   isDefensiveBuilding: 0
   attackRange: 10
   attackCooldown: 1
+  teamTag: 
+  enemyTeamTag: 
+  intactModel: {fileID: 5022379637075592576}
+  brokenModel: {fileID: 3097533417833658296}
+  destroyedModel: {fileID: 8175400044556813873}
+--- !u!1001 &2886039788782639261
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1717051408839653303}
+    m_Modifications:
+    - target: {fileID: 5922882564246045718, guid: 25a4c3cbca768924ea6a3a97ed066911, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922882564246045718, guid: 25a4c3cbca768924ea6a3a97ed066911, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922882564246045718, guid: 25a4c3cbca768924ea6a3a97ed066911, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922882564246045718, guid: 25a4c3cbca768924ea6a3a97ed066911, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922882564246045718, guid: 25a4c3cbca768924ea6a3a97ed066911, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922882564246045718, guid: 25a4c3cbca768924ea6a3a97ed066911, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922882564246045718, guid: 25a4c3cbca768924ea6a3a97ed066911, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922882564246045718, guid: 25a4c3cbca768924ea6a3a97ed066911, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922882564246045718, guid: 25a4c3cbca768924ea6a3a97ed066911, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5922882564246045718, guid: 25a4c3cbca768924ea6a3a97ed066911, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447359039932063404, guid: 25a4c3cbca768924ea6a3a97ed066911, type: 3}
+      propertyPath: m_Name
+      value: CS_Evil_Castle_Stage03 Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 25a4c3cbca768924ea6a3a97ed066911, type: 3}
+--- !u!1 &8175400044556813873 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6447359039932063404, guid: 25a4c3cbca768924ea6a3a97ed066911, type: 3}
+  m_PrefabInstance: {fileID: 2886039788782639261}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8808772221372062859 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5922882564246045718, guid: 25a4c3cbca768924ea6a3a97ed066911, type: 3}
+  m_PrefabInstance: {fileID: 2886039788782639261}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5994106998920308414
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1717051408839653303}
+    m_Modifications:
+    - target: {fileID: 8257400602817186748, guid: 5256e95745d64174399f98bed56a1696, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257400602817186748, guid: 5256e95745d64174399f98bed56a1696, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257400602817186748, guid: 5256e95745d64174399f98bed56a1696, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257400602817186748, guid: 5256e95745d64174399f98bed56a1696, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257400602817186748, guid: 5256e95745d64174399f98bed56a1696, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257400602817186748, guid: 5256e95745d64174399f98bed56a1696, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257400602817186748, guid: 5256e95745d64174399f98bed56a1696, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257400602817186748, guid: 5256e95745d64174399f98bed56a1696, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257400602817186748, guid: 5256e95745d64174399f98bed56a1696, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257400602817186748, guid: 5256e95745d64174399f98bed56a1696, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778640155670188294, guid: 5256e95745d64174399f98bed56a1696, type: 3}
+      propertyPath: m_Name
+      value: CS_Evil_Castle_Stage02 Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5256e95745d64174399f98bed56a1696, type: 3}
+--- !u!4 &2429540918983929090 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8257400602817186748, guid: 5256e95745d64174399f98bed56a1696, type: 3}
+  m_PrefabInstance: {fileID: 5994106998920308414}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3097533417833658296 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8778640155670188294, guid: 5256e95745d64174399f98bed56a1696, type: 3}
+  m_PrefabInstance: {fileID: 5994106998920308414}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6442738368402571973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -108,6 +248,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dabb831a8a1be304699791e6e72aa16e, type: 3}
+--- !u!1 &5022379637075592576 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2079017894953453381, guid: dabb831a8a1be304699791e6e72aa16e, type: 3}
+  m_PrefabInstance: {fileID: 6442738368402571973}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5690512564178100026 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1698410587334237695, guid: dabb831a8a1be304699791e6e72aa16e, type: 3}

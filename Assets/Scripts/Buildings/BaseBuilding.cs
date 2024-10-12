@@ -14,7 +14,7 @@ public abstract class BaseBuilding : MonoBehaviour
     public string teamTag;  
     public string enemyTeamTag;
     
-    protected bool isDead = false;
+    public bool isDead = false;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -49,7 +49,9 @@ public abstract class BaseBuilding : MonoBehaviour
     }
 
     // Abstract method for attacking (must be implemented by derived classes)
-    protected abstract void Attack();
+    public virtual void Attack(){
+        Debug.Log("Attack: Building " + buildingName + " is attacking.");
+    }
 
     // Method to check for and attack enemies, implemented by child classes
     protected IEnumerator AttackRoutine()
@@ -65,7 +67,7 @@ public abstract class BaseBuilding : MonoBehaviour
     protected virtual void Die()
     {
         isDead = true;
-        Destroy(gameObject);  // Remove the building from the scene
+        //Destroy(gameObject);  // Remove the building from the scene
     }
 }
 

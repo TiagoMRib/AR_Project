@@ -44,7 +44,7 @@ public class Bat : BaseTroop
         {
             BaseBuilding building = currentTarget.GetComponent<BaseBuilding>();
 
-            if (building != null)
+            if (building != null && !building.isDead)
             {
                 Debug.Log("Attack: Bat attacks the building: " + building.buildingName);
                 
@@ -56,36 +56,33 @@ public class Bat : BaseTroop
 
                 StartCoroutine(AttackBuilding(building)); // Start attacking the building
             }
+            else
+            {
+                Debug.Log("Attack: Target is already dead, searching for a new target.");
+                FindTarget();
+            }
         }
     }
 
     // Coroutine for continuous attack with cooldown
-        private IEnumerator AttackBuilding(BaseBuilding building)
+    private IEnumerator AttackBuilding(BaseBuilding building)
     {
         isAttacking = true;
 
         while (currentTarget != null && Vector3.Distance(transform.position, currentTarget.position) <= attackRange)
         {
-            if (building != null)
+            if (building.isDead)
             {
-                // Deal damage to the building
-                building.TakeDamage(damage);
-                Debug.Log("Bat deals " + damage + " damage to " + building.buildingName);
-
-                // Wait for attack cooldown before the next attack
-                yield return new WaitForSeconds(attackCooldown);
-
-                // Trigger the attack animation again for each attack cycle
-                if (animator != null)
-                {
-                    animator.SetTrigger("Attack");
-                }
-            }
-            else
-            {
-                Debug.Log("Attack: Target building destroyed.");
-                currentTarget = null;
+                Debug.Log("Attack: Target is dead. Stopping attack.");
                 break;
+            }
+
+            building.TakeDamage(damage);
+            Debug.Log("Bat deals " + damage + " damage to " + building.buildingName);
+            yield return new WaitForSeconds(attackCooldown);
+            if (animator != null)
+            {
+                animator.SetTrigger("Attack");
             }
         }
 
@@ -96,6 +93,9 @@ public class Bat : BaseTroop
             animator.SetTrigger("Idle"); // Optionally, set the animation state back to "Idle" or a default state
         }
 
-        isAttacking = false; // Reset isAttacking when out of range or target destroyed
+        isAttacking = false;
+        FindTarget(); // Search for a new target if the current one is gone
     }
+
+
 }
