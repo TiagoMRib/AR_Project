@@ -56,12 +56,31 @@ public abstract class BaseTroop : MonoBehaviour
     }
 
     // Base method for moving towards a target
-    protected virtual void MoveTowardsTarget()
+protected virtual void MoveTowardsTarget()
+{
+    Debug.Log("Movement: Moving towards the target.");
+    if (currentTarget == null) return;
+
+    // Calculate step size based on speed
+    float step = speed * Time.deltaTime;
+
+    // Move towards the target
+    transform.position = Vector3.MoveTowards(transform.position, currentTarget.position, step);
+
+    // Calculate the direction to the target
+    Vector3 direction = currentTarget.position - transform.position;
+    direction.y = 0; // Keep the rotation on the horizontal plane
+
+    // If the direction is not zero, update the rotation
+    if (direction.magnitude > 0.01f)
     {
-        Debug.Log("Movement: Moving towards the target.");
-        float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, currentTarget.position, step);
+        // Create the rotation facing the target
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+
+        // Smoothly rotate towards the target
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step * 100f);
     }
+}
 
     // Method to be called when the troop takes damage
     public virtual void TakeDamage(float amount)

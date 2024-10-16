@@ -27,7 +27,7 @@ public class Bat : BaseTroop
         foreach (GameObject enemy in enemyObjects)
         {
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distance < closestDistance)
+            if (distance < closestDistance && !enemy.GetComponent<BaseBuilding>().isDead)
             {
                 closestDistance = distance;
                 currentTarget = enemy.transform;
@@ -49,10 +49,10 @@ public class Bat : BaseTroop
                 Debug.Log("Attack: Bat attacks the building: " + building.buildingName);
                 
                 // Trigger the attack animation
-                if (animator != null)
+                /*if (animator != null)
                 {
                     animator.SetTrigger("Attack");
-                }
+                }*/
 
                 StartCoroutine(AttackBuilding(building)); // Start attacking the building
             }

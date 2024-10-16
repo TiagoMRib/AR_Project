@@ -36,7 +36,7 @@ public class MainCastle : BaseBuilding
     private void UpdateModel()
     {
         // Enable/disable models based on health percentage
-        if (currentHealth > 50f)
+        if (currentHealth > 0.5*maxHealth)
         {
             // Castle is in good condition
             intactModel.SetActive(true);
