@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
   <Tracking>
+    <ImageTarget name="challenge_card" size="1.000000 0.952381" />
     <ImageTarget name="castle_logo" size="1.000000 1.000000" />
     <ImageTarget name="bat_qr" size="1.000000 1.000000" />
   </Tracking>
