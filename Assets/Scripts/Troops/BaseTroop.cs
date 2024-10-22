@@ -1,32 +1,31 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public abstract class BaseTroop : MonoBehaviour
 {
     public bool flyer = false;
 
     public string troopType = "Normal";
-    public float health = 100f;       // Health of the troop
-    public float damage = 10f;        // Damage this troop 
-    
-    public float attackRange = 1f;   // Attack range
-
+    public float health = 100f;
+    public float damage = 10f;
+    public float attackRange = 1f;
     public float attackCooldown = 1f;
-    public float speed = 5f;          // Movement speed
-    public string teamTag = "Team1";  // Team identifier (e.g., "Team1" or "Team2")
+    public float speed = 5f;
+    public string teamTag = "Team1";
+    public string enemyTeamTag;
 
-    public string enemyTeamTag;       // Enemy team identifier
-
-    protected Transform currentTarget;   // The current target this troop is attacking
-    protected bool isAttacking = false;    // To check if the troop is already attacking
+    protected Transform currentTarget;
+    protected bool isAttacking = false;
 
     protected Animator animator;
+
+    public List<Transform> pathPoints = new List<Transform>();
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        // Initial setup, team assignment
-        enemyTeamTag = (teamTag == "Team1") ? "Team2" : "Team1";  // Set enemy team tag
+        enemyTeamTag = (teamTag == "Team1") ? "Team2" : "Team1";
         animator = GetComponentInChildren<Animator>();
         FindTarget();
     }
@@ -35,54 +34,119 @@ public abstract class BaseTroop : MonoBehaviour
     {
         if (currentTarget != null)
         {
-            // Check distance to current target
             float distanceToTarget = Vector3.Distance(transform.position, currentTarget.position);
 
-            Debug.Log("Attack:" + distanceToTarget + " units away from the target.");
-            
-            if (distanceToTarget > attackRange) 
+            if (distanceToTarget > attackRange)
             {
-
-                Debug.Log("Attack: Out of range. Moving towards the target.");
-                // Move towards the target if out of range
                 MoveTowardsTarget();
             }
             else if (!isAttacking)
             {
-                // Start attacking if in range and not already attacking
                 Attack();
             }
         }
     }
 
-    // Base method for moving towards a target
-protected virtual void MoveTowardsTarget()
-{
-    Debug.Log("Movement: Moving towards the target.");
-    if (currentTarget == null) return;
-
-    // Calculate step size based on speed
-    float step = speed * Time.deltaTime;
-
-    // Move towards the target
-    transform.position = Vector3.MoveTowards(transform.position, currentTarget.position, step);
-
-    // Calculate the direction to the target
-    Vector3 direction = currentTarget.position - transform.position;
-    direction.y = 0; // Keep the rotation on the horizontal plane
-
-    // If the direction is not zero, update the rotation
-    if (direction.magnitude > 0.01f)
+    private void BaseMovement()
     {
-        // Create the rotation facing the target
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        if (currentTarget == null) return;
 
-        // Smoothly rotate towards the target
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step * 100f);
+        float step = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, currentTarget.position, step);
+
+        Vector3 direction = currentTarget.position - transform.position;
+        direction.y = 0;
+
+        if (direction.magnitude > 0.01f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step * 100f);
+        }
+    }
+
+    protected virtual void MoveTowardsTarget()
+    {
+        if (flyer)
+        {
+            BaseMovement();
+        }
+        else
+        {
+            if (IsTargetAcrossRiver())
+            {
+                if (pathPoints.Count == 0)
+                {
+                    FindBridgePath();
+                }
+
+                if (pathPoints.Count > 0)
+                {
+                    Transform nextPoint = pathPoints[0];
+                    float step = speed * Time.deltaTime;
+                    transform.position = Vector3.MoveTowards(transform.position, nextPoint.position, step);
+
+                    if (Vector3.Distance(transform.position, nextPoint.position) < 0.1f)
+                    {
+                        pathPoints.RemoveAt(0);
+                    }
+                }
+            }
+            else
+            {
+                BaseMovement();
+            }
+        }
+    }
+
+    private bool IsTargetAcrossRiver()
+    {
+        return Mathf.Abs(transform.position.z) < 3 && Mathf.Abs(currentTarget.position.z) > 3 || 
+               Mathf.Abs(transform.position.z) > 3 && Mathf.Abs(currentTarget.position.z) < 3;
+    }
+
+    private void FindBridgePath()
+{
+    GameObject[] bridges = GameObject.FindGameObjectsWithTag("Bridge");
+
+    if (bridges.Length == 0)
+    {
+        Debug.LogWarning("No bridges found in the scene.");
+        return;
+    }
+
+    float closestDistance = Mathf.Infinity;
+    GameObject closestBridge = null;
+
+    foreach (GameObject bridge in bridges)
+    {
+        float distance = Vector3.Distance(transform.position, bridge.transform.position);
+        if (distance < closestDistance)
+        {
+            closestDistance = distance;
+            closestBridge = bridge;
+        }
+    }
+
+    // If a closest bridge is found, add its start and end points to path points
+    if (closestBridge != null)
+    {
+        // Assuming the bridge has a script that defines its start and end points
+        Bridge bridgeScript = closestBridge.GetComponent<Bridge>(); // Replace Bridge with your actual bridge script
+
+        if (bridgeScript != null)
+        {
+            // Move towards the start of the bridge first
+            pathPoints.Add(bridgeScript.startPoint); // Assumes startPoint is a Transform
+            pathPoints.Add(bridgeScript.endPoint);   // Assumes endPoint is a Transform
+            pathPoints.Add(currentTarget);            // Move towards the original target after crossing
+        }
+        else
+        {
+            Debug.LogWarning("Bridge script not found on the closest bridge.");
+        }
     }
 }
 
-    // Method to be called when the troop takes damage
     public virtual void TakeDamage(float amount)
     {
         health -= amount;
@@ -92,15 +156,12 @@ protected virtual void MoveTowardsTarget()
         }
     }
 
-    // Handle death
     protected virtual void Die()
     {
         Debug.Log(gameObject.name + " died.");
-        Destroy(gameObject);  // Destroy the troop on death
+        Destroy(gameObject);
     }
 
-    // Find the closest target 
     protected abstract void FindTarget();
-
     protected abstract void Attack();
 }
