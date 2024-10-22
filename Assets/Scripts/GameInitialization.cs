@@ -5,6 +5,7 @@ public class GameInitialization : MonoBehaviour
 {
     private ObserverBehaviour observerBehaviour;
     private bool gameStarted = false;
+    private bool cardDetected = false;
 
     public GameObject arenaPrefab; // The arena prefab to enable/disable
     public Canvas startGameCanvas; // The canvas containing the "Start Game" button
@@ -22,6 +23,10 @@ public class GameInitialization : MonoBehaviour
         // Initially hide the canvas and arena
         if (startGameCanvas) startGameCanvas.gameObject.SetActive(false);
         if (arenaPrefab) arenaPrefab.SetActive(false);
+
+        // Subscribe to game state changes
+        GameManager.Instance.OnMatchStarted += OnMatchStarted;
+        GameManager.Instance.OnMatchEnded += OnMatchEnded;
     }
 
     void OnDestroy()
@@ -30,6 +35,13 @@ public class GameInitialization : MonoBehaviour
         {
             // Unregister from status change events
             observerBehaviour.OnTargetStatusChanged -= OnTargetStatusChanged;
+        }
+
+        // Unsubscribe from game state changes
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnMatchStarted -= OnMatchStarted;
+            GameManager.Instance.OnMatchEnded -= OnMatchEnded;
         }
     }
 
@@ -40,17 +52,16 @@ public class GameInitialization : MonoBehaviour
         {
             // The Image Target has been detected
             Debug.Log("The Image has been detected");
-            if (!gameStarted && startGameCanvas != null)
-            {
-                Debug.Log("Turning on canvas");
-                startGameCanvas.gameObject.SetActive(true); // Show the canvas
-            }
+            cardDetected = true;
         }
         else
         {
             // The Image Target is no longer visible
+            cardDetected = false;
             StopGame();
         }
+
+        UpdateUIVisibility();
     }
 
     // Called when the game is supposed to start
@@ -58,17 +69,32 @@ public class GameInitialization : MonoBehaviour
     {
         Debug.Log("Game started!");
         gameStarted = true;
-        if (arenaPrefab) arenaPrefab.SetActive(true); // Show the arena
-        if (startGameCanvas) startGameCanvas.gameObject.SetActive(false); // Hide the canvas
-        GameManager.Instance.StartGame(); // Start the game logic
+        UpdateUIVisibility();
+        GameManager.Instance.StartMatch(); // Start the game logic
     }
 
     // Stops the game
     private void StopGame()
     {
         gameStarted = false;
-        if (arenaPrefab) arenaPrefab.SetActive(false); // Hide the arena
-        if (startGameCanvas) startGameCanvas.gameObject.SetActive(false); // Hide the canvas
-        GameManager.Instance.EndGame(); // Stop the game logic
+        UpdateUIVisibility();
+        GameManager.Instance.EndMatch(); // Change later to pause?
+    }
+
+    // Handles UI visibility based on card detection and game state
+    private void UpdateUIVisibility()
+    {
+        if (arenaPrefab) arenaPrefab.SetActive(gameStarted && cardDetected);
+        if (startGameCanvas) startGameCanvas.gameObject.SetActive(!gameStarted && cardDetected);
+    }
+
+    private void OnMatchStarted()
+    {
+        UpdateUIVisibility();
+    }
+
+    private void OnMatchEnded()
+    {
+        UpdateUIVisibility();
     }
 }

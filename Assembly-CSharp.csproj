@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Troops\Tank.cs" />
     <Compile Include="Assets\Scripts\Troops\Bat.cs" />
     <Compile Include="Assets\Scripts\Buildings\BaseBuilding.cs" />
+    <Compile Include="Assets\Scripts\Troops\TroopSpawner.cs" />
     <Compile Include="Assets\Scripts\GameInitialization.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Buildings\RoadBlock.cs" />

@@ -1,9 +1,13 @@
 using UnityEngine;
+using System;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
-    public bool gameStarted = false;
+    public static GameManager Instance { get; private set; }
+    public bool IsMatchRunning { get; private set; } = false;
+
+    public event Action OnMatchStarted;
+    public event Action OnMatchEnded;
 
     private void Awake()
     {
@@ -17,17 +21,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void StartGame()
+    public void StartMatch()
     {
-        gameStarted = true;
-        Debug.Log("GameManager: Game has officially started.");
-        // Enable other game systems, like troop spawning, etc.
+        IsMatchRunning = true;
+        OnMatchStarted?.Invoke();
+        Debug.Log("Match started!");
     }
 
-    public void EndGame()
+    public void EndMatch()
     {
-        gameStarted = false;
-        Debug.Log("GameManager: Game has ended.");
-        // Handle end-of-game logic here
+        IsMatchRunning = false;
+        OnMatchEnded?.Invoke();
+        Debug.Log("Match ended.");
     }
 }
