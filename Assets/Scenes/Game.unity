@@ -173,6 +173,23 @@ MonoBehaviour:
   mTargetName: 
   mDatasetName: 
   mCastedBehaviour: {fileID: 379170445}
+--- !u!114 &379170450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379170443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1308684972, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 379170445}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: 
+  mDatasetName: 
+  mCastedBehaviour: {fileID: 379170445}
 --- !u!1 &610564600 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8721219424376524893, guid: 8c063f616f1893941a040a7fc03eedc7, type: 3}
@@ -209,6 +226,25 @@ MonoBehaviour:
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
 --- !u!114 &610564606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610564600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 610564603}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: bat_qr
+  mDatasetName: Vuforia/AR_Project.xml
+  mCastedBehaviour: {fileID: 610564603}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &610564607
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -296,6 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1392814968}
   - component: {fileID: 1392814967}
+  - component: {fileID: 1392814969}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -380,6 +417,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1392814969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392814966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &1679602021
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +453,7 @@ GameObject:
   - component: {fileID: 1679602024}
   - component: {fileID: 1679602023}
   - component: {fileID: 1679602022}
+  - component: {fileID: 1679602027}
   m_Layer: 0
   m_Name: ARCamera
   m_TagString: MainCamera
@@ -500,6 +561,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 78.954, y: -6.408, z: -5.667}
+--- !u!114 &1679602027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679602021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &1924757703
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,12 +875,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8721219424376524893, guid: 8c063f616f1893941a040a7fc03eedc7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 610564606}
+    - targetCorrespondingSourceObject: {fileID: 8721219424376524893, guid: 8c063f616f1893941a040a7fc03eedc7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 610564607}
     - targetCorrespondingSourceObject: {fileID: 818158256173443587, guid: 8c063f616f1893941a040a7fc03eedc7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 379170448}
     - targetCorrespondingSourceObject: {fileID: 818158256173443587, guid: 8c063f616f1893941a040a7fc03eedc7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 379170449}
+    - targetCorrespondingSourceObject: {fileID: 818158256173443587, guid: 8c063f616f1893941a040a7fc03eedc7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 379170450}
   m_SourcePrefab: {fileID: 100100000, guid: 8c063f616f1893941a040a7fc03eedc7, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
