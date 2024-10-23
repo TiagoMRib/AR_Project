@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\Migration\AddVuforiaEnginePackage.cs" />
+    <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\Editor\ChatEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Editor\Vuforia\CylinderTargetTextures\VuforiaMars_Images\authoringinfo.xml" />
@@ -472,6 +473,14 @@
     </Reference>
     <Reference Include="Vuforia.Unity.Editor">
       <HintPath>Library\PackageCache\com.ptc.vuforia.engine@b724a8714d15\Vuforia\Plugins\Managed\Editor\Vuforia.Unity.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Photon3Unity3D">
+      <HintPath>Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>Assets\Photon\PhotonLibs\WebSocket\websocket-sharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="nunit.framework">
@@ -1285,6 +1294,17 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj" />
+    <ProjectReference Include="PhotonUnityNetworking.Editor.csproj" />
+    <ProjectReference Include="PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj" />
+    <ProjectReference Include="PunDemos.DemoSlotcarEditor.csproj" />
+    <ProjectReference Include="ParrelSync.csproj" />
+    <ProjectReference Include="PhotonChat.csproj" />
+    <ProjectReference Include="PhotonUnityNetworking.csproj" />
+    <ProjectReference Include="PhotonUnityNetworking.Utilities.Culling.Editor.csproj" />
+    <ProjectReference Include="PhotonUnityNetworking.Demos.csproj" />
+    <ProjectReference Include="PhotonUnityNetworking.Utilities.csproj" />
+    <ProjectReference Include="PhotonRealtime.csproj" />
+    <ProjectReference Include="PunDemos.DemoHubEditor.csproj" />
   </ItemGroup>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
   <ItemGroup>

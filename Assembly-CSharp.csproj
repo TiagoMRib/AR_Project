@@ -67,12 +67,19 @@
     <Compile Include="Assets\Scripts\StartButtonHandler.cs" />
     <Compile Include="Assets\Bridge.cs" />
     <Compile Include="Assets\Scripts\Buildings\MainCastle.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\Scripts\Troops\BaseTroop.cs" />
     <Compile Include="Assets\Scripts\Troops\Golem.cs" />
     <Compile Include="Assets\Scripts\Troops\Mushroom.cs" />
     <Compile Include="Assets\Scripts\Troops\Projectile.cs" />
     <Compile Include="Assets\Scripts\Troops\Tank.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
+    <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs" />
     <Compile Include="Assets\Scripts\Troops\Bat.cs" />
+    <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\Scripts\Buildings\BaseBuilding.cs" />
     <Compile Include="Assets\Scripts\Troops\TroopSpawner.cs" />
     <Compile Include="Assets\Scripts\GameInitialization.cs" />
@@ -455,6 +462,14 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1\Runtime\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Photon3Unity3D">
+      <HintPath>Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>Assets\Photon\PhotonLibs\WebSocket\websocket-sharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Android.Types">
@@ -1061,6 +1076,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.FilmInternalUtilities.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.FilmInternalUtilities.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1243,6 +1262,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="PhotonUnityNetworking.Editor.csproj" />
+    <ProjectReference Include="PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj" />
+    <ProjectReference Include="PunDemos.DemoSlotcarEditor.csproj" />
+    <ProjectReference Include="ParrelSync.csproj" />
+    <ProjectReference Include="PhotonChat.csproj" />
+    <ProjectReference Include="PhotonUnityNetworking.csproj" />
+    <ProjectReference Include="PhotonUnityNetworking.Utilities.Culling.Editor.csproj" />
+    <ProjectReference Include="PhotonUnityNetworking.Demos.csproj" />
+    <ProjectReference Include="PhotonUnityNetworking.Utilities.csproj" />
+    <ProjectReference Include="PhotonRealtime.csproj" />
+    <ProjectReference Include="PunDemos.DemoHubEditor.csproj" />
   </ItemGroup>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
   <ItemGroup>

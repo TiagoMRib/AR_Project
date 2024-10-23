@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8144858508102755168}
   - component: {fileID: 5140965743486908749}
+  - component: {fileID: 4630221401953836167}
+  - component: {fileID: 8431770989113193335}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -45,13 +47,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 686cf57896520a44781cf6e137cb0948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flyer: 0
+  troopType: Spooky
   health: 100
   damage: 10
+  attackRange: 1
+  attackCooldown: 1
   speed: 5
   teamTag: Team1
   enemyTeamTag: 
-  troopType: Spooky
-  canFly: 1
+--- !u!114 &4630221401953836167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4160198168319932977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &8431770989113193335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4160198168319932977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 697333272, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PreviewVisible: 1
+  RuntimeOcclusion: 0
+  RuntimeCollider: 0
+  mTrackableName: 
+  mInitializedInEditor: 0
+  mSelectedStageType: 0
+  mPlaneReference: {fileID: 0}
+  mMidAirReference: {fileID: 0}
+  mPreview: {fileID: 0}
 --- !u!1001 &1145112836561785073
 PrefabInstance:
   m_ObjectHideFlags: 0
