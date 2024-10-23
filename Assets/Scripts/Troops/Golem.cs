@@ -48,13 +48,13 @@ public class Golem : BaseTroop
             // Trigger walking animation if moving
             if (!isAttacking)
             {
-                animator.SetBool("IsWalking", true); // Set walking animation
+                animator.SetBool("isWalking", true); // Set walking animation
             }
         }
         else
         {
             // If no target, stop the walking animation
-            animator.SetBool("IsWalking", false);
+            animator.SetBool("isWalking", false);
         }
     }
 
@@ -65,7 +65,7 @@ public class Golem : BaseTroop
         {
             base.MoveTowardsTarget();
             // When Golem reaches the target, stop walking
-            animator.SetBool("IsWalking", false);
+            animator.SetBool("isWalking", false);
         }
             
         

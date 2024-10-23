@@ -1715,7 +1715,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3511875294026142632, guid: 139ecd3912f8a2d45aa09ca827ffcb11, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.41
+      value: -8.78
       objectReference: {fileID: 0}
     - target: {fileID: 3511875294026142632, guid: 139ecd3912f8a2d45aa09ca827ffcb11, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1723,7 +1723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3511875294026142632, guid: 139ecd3912f8a2d45aa09ca827ffcb11, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.23
+      value: -3.86
       objectReference: {fileID: 0}
     - target: {fileID: 3511875294026142632, guid: 139ecd3912f8a2d45aa09ca827ffcb11, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1752,6 +1752,10 @@ PrefabInstance:
     - target: {fileID: 3511875294026142632, guid: 139ecd3912f8a2d45aa09ca827ffcb11, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5568597113413227180, guid: 139ecd3912f8a2d45aa09ca827ffcb11, type: 3}
+      propertyPath: teamTag
+      value: Team2
       objectReference: {fileID: 0}
     - target: {fileID: 5568597113413227180, guid: 139ecd3912f8a2d45aa09ca827ffcb11, type: 3}
       propertyPath: pathPoints.Array.size
@@ -1784,6 +1788,14 @@ PrefabInstance:
     - target: {fileID: 8083784037439107555, guid: 139ecd3912f8a2d45aa09ca827ffcb11, type: 3}
       propertyPath: m_Name
       value: Golem
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083784037439107555, guid: 139ecd3912f8a2d45aa09ca827ffcb11, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083784037439107555, guid: 139ecd3912f8a2d45aa09ca827ffcb11, type: 3}
+      propertyPath: m_TagString
+      value: Team2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

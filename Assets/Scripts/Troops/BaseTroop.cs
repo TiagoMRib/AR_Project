@@ -27,6 +27,7 @@ public abstract class BaseTroop : MonoBehaviour
     {
         enemyTeamTag = (teamTag == "Team1") ? "Team2" : "Team1";
         animator = GetComponentInChildren<Animator>();
+        Debug.Log("Animator found: " + animator);
         FindTarget();
     }
 
