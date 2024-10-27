@@ -89,6 +89,10 @@ public class Mushroom : BaseTroop
         // Wait for the cooldown before firing the next projectile
         yield return new WaitForSeconds(attackCooldown);
 
+        animator.SetTrigger("Attack"); // Trigger the attack animation
+
+        yield return new WaitForSeconds(1f);
+
         // Instantiate the projectile
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         Projectile projectileScript = projectile.GetComponent<Projectile>(); // Assuming the projectile has a script
@@ -100,6 +104,7 @@ public class Mushroom : BaseTroop
         }
 
         isAttacking = false; // Reset attacking state
+        animator.SetTrigger("Idle"); // Set back to idle animation
         FindTarget(); // Find a new target if the current one is gone
     }
 }

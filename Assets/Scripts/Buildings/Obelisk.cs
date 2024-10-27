@@ -55,6 +55,7 @@ public class Obelisk : BaseBuilding
             }
         }
     }
+    
 
     // Shoots a laser beam at the current target
     private void ShootLaser()
