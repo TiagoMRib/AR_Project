@@ -56,7 +56,10 @@ public class Ghost : BaseTroop
     // Coroutine to handle the vanishing after a set time
     private IEnumerator VanishAfterTime()
     {
-        yield return new WaitForSeconds(lifetime - 2f); // Wait for most of the lifetime before playing animation
+        
+        yield return new WaitForSeconds(lifetime - 1f); // Wait for most of the lifetime before playing animation
+
+        isVanishing = true;
 
         // Trigger the scared animation before vanishing
         if (animator != null)
@@ -64,16 +67,16 @@ public class Ghost : BaseTroop
             animator.SetTrigger("Scared");
         }
 
-        yield return new WaitForSeconds(2f); // Wait for the scared animation to finish
+        yield return new WaitForSeconds(1f); // Wait for the scared animation to finish
 
         // Start the vanishing process
-        isVanishing = true;
+        
         if (animator != null)
         {
             animator.SetTrigger("Vanish");
         }
 
-        yield return new WaitForSeconds(1f); // Wait for the vanish animation
+        yield return new WaitForSeconds(3f); // Wait for the vanish animation
 
         Die(); // Destroy the ghost after vanishing
     }

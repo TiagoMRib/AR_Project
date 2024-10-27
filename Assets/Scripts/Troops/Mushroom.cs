@@ -51,7 +51,22 @@ public class Mushroom : BaseTroop
             }
             else
             {
-                MoveTowardsTarget(); // Move towards the target if out of range
+                if (currentTarget != null)
+        {
+            // Move towards the target
+            MoveTowardsTarget();
+
+            // Trigger walking animation if moving
+            if (!isAttacking)
+            {
+                animator.SetBool("isWalking", true); // Set walking animation
+            }
+        }
+        else
+        {
+            // If no target, stop the walking animation
+            animator.SetBool("isWalking", false);
+        }
             }
         }
     }

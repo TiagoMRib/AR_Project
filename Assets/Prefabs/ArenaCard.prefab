@@ -301,13 +301,13 @@ MonoBehaviour:
   PreviewVisible: 1
   RuntimeOcclusion: 0
   RuntimeCollider: 0
-  mTrackableName: challenge_card
+  mTrackableName: challenge
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/AR_Project.xml
-  mAspectRatio: 0.952381
+  mAspectRatio: 1
   mImageTargetType: 0
-  mWidth: 0.7
-  mHeight: 0.6666667
+  mWidth: 1
+  mHeight: 1
   mRuntimeTexture: {fileID: 0}
   mMotionHint: 1
   mTrackingOptimization: 0
