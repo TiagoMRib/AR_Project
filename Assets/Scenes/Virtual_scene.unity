@@ -765,7 +765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingPrefab: {fileID: 474593025}
---- !u!114 &1962593536
+--- !u!114 &1962593539
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1031,8 +1031,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2862554651540020879, guid: afa40e424618bcd44b043e130568af6f, type: 3}
+      propertyPath: isDead
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862554651540020879, guid: afa40e424618bcd44b043e130568af6f, type: 3}
       propertyPath: teamTag
-      value: Team2
+      value: Team1
       objectReference: {fileID: 0}
     - target: {fileID: 2862554651540020879, guid: afa40e424618bcd44b043e130568af6f, type: 3}
       propertyPath: laserBeam
@@ -1040,7 +1044,11 @@ PrefabInstance:
       objectReference: {fileID: 4695542792604707336}
     - target: {fileID: 2862554651540020879, guid: afa40e424618bcd44b043e130568af6f, type: 3}
       propertyPath: attackRange
-      value: 6
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862554651540020879, guid: afa40e424618bcd44b043e130568af6f, type: 3}
+      propertyPath: attackCooldown
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3241449169945243136, guid: afa40e424618bcd44b043e130568af6f, type: 3}
       propertyPath: mPreview
@@ -1052,7 +1060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4860082830929344686, guid: afa40e424618bcd44b043e130568af6f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.22
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4860082830929344686, guid: afa40e424618bcd44b043e130568af6f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1096,7 +1104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6860370109462849149, guid: afa40e424618bcd44b043e130568af6f, type: 3}
       propertyPath: m_TagString
-      value: Team2
+      value: Team1
       objectReference: {fileID: 0}
     - target: {fileID: 8713621226839321285, guid: afa40e424618bcd44b043e130568af6f, type: 3}
       propertyPath: m_Name
@@ -1104,7 +1112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8713621226839321285, guid: afa40e424618bcd44b043e130568af6f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2790709433579458440, guid: afa40e424618bcd44b043e130568af6f, type: 3}
@@ -1116,7 +1124,7 @@ PrefabInstance:
       addedObject: {fileID: 1962593535}
     - targetCorrespondingSourceObject: {fileID: 8713621226839321285, guid: afa40e424618bcd44b043e130568af6f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1962593536}
+      addedObject: {fileID: 1962593539}
   m_SourcePrefab: {fileID: 100100000, guid: afa40e424618bcd44b043e130568af6f, type: 3}
 --- !u!120 &4695542792604707336 stripped
 LineRenderer:
@@ -1137,6 +1145,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1101734840357785927, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
       propertyPath: teamTag
+      value: Team2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3612688800384791048, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
+      propertyPath: m_TagString
       value: Team2
       objectReference: {fileID: 0}
     - target: {fileID: 6412759697801352175, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
@@ -1197,7 +1209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7614212339931074166, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7462484287253778393, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}

@@ -17,15 +17,17 @@ public class Obelisk : BaseBuilding
         {
             laserBeam.enabled = false; // Initially hide the laser beam
         }
+
+        FindTarget();
     }
 
     protected override void Update()
     {
         base.Update();
 
-        if (isDefensiveBuilding && !isDead)
+        if (!isDead)
         {
-            FindTarget();
+            if (currentTarget == null) FindTarget();
             if (currentTarget != null)
             {
                 Debug.Log("Obelisk is attacking " + currentTarget.name);
@@ -42,6 +44,7 @@ public class Obelisk : BaseBuilding
     private void FindTarget()
     {
         GameObject[] enemyTroops = GameObject.FindGameObjectsWithTag(enemyTeamTag);
+        Debug.Log("Obelisk found " + enemyTroops.Length + " enemies.");
         float closestDistance = attackRange;
         currentTarget = null;
 
@@ -54,6 +57,8 @@ public class Obelisk : BaseBuilding
                 currentTarget = enemy.transform;
             }
         }
+
+        Debug.Log("Obelisk found the closest enemy: " + currentTarget);
     }
     
 

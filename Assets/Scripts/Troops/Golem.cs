@@ -27,6 +27,7 @@ public class Golem : BaseTroop
         foreach (GameObject enemy in enemyObjects)
         {
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
+            Debug.Log("Golem Enemy: " + enemy.name + " is " + distance + " units away, in position: " + enemy.transform.position);
             if (distance < closestDistance && !enemy.GetComponent<BaseBuilding>().isDead)
             {
                 closestDistance = distance;
@@ -121,6 +122,7 @@ public class Golem : BaseTroop
                 }
 
                 // Deal damage
+                yield return new WaitForSeconds(2.5f);
                 building.TakeDamage(damage);
                 Debug.Log("Golem deals " + damage + " damage to " + building.buildingName);
                 hits++;
@@ -134,8 +136,9 @@ public class Golem : BaseTroop
                 }
 
                 // Deal damage
-                building.TakeDamage(damage * 2); // Assuming Hammer Attack does more damage
-                Debug.Log("Golem performs a hammer attack, dealing " + (damage * 2) + " damage to " + building.buildingName);
+                yield return new WaitForSeconds(2.5f);
+                building.TakeDamage(damage * 1.5f); // Hammer Attack does more damage
+                Debug.Log("Golem performs a hammer attack, dealing " + (damage * 1.5f) + " damage to " + building.buildingName);
                 hits = 0; // Reset hits after hammer attack
             }
 

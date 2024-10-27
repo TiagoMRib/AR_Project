@@ -22,10 +22,6 @@ public abstract class BaseBuilding : MonoBehaviour
         enemyTeamTag = (teamTag == "Team1") ? "Team2" : "Team1";
 
         currentHealth = maxHealth;
-        if (isDefensiveBuilding)
-        {
-            StartCoroutine(AttackRoutine());
-        }
     }
 
     // Update is called once per frame
@@ -67,7 +63,7 @@ public abstract class BaseBuilding : MonoBehaviour
     protected virtual void Die()
     {
         isDead = true;
-        //Destroy(gameObject);  // Remove the building from the scene
+        Destroy(gameObject);  // Remove the building from the scene
     }
 }
 
