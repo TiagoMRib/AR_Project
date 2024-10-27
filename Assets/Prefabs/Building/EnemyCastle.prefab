@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1717051408839653303}
   - component: {fileID: 4995902368276513574}
+  - component: {fileID: 8791024766533892648}
   m_Layer: 0
   m_Name: EnemyCastle
   m_TagString: Team2
@@ -54,9 +55,31 @@ MonoBehaviour:
   attackCooldown: 1
   teamTag: 
   enemyTeamTag: 
+  isDead: 0
   intactModel: {fileID: 5022379637075592576}
   brokenModel: {fileID: 3097533417833658296}
   destroyedModel: {fileID: 8175400044556813873}
+--- !u!65 &8791024766533892648
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4950908617411762691}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.9612064, y: 4.7539854, z: 7.8213367}
+  m_Center: {x: -0.17259932, y: 1.8769932, z: -0.14089918}
 --- !u!1001 &2886039788782639261
 PrefabInstance:
   m_ObjectHideFlags: 0

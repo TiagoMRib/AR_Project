@@ -39,17 +39,23 @@ public class Golem : BaseTroop
 
     protected override void Update()
     {
+        
         // Check if Golem is moving towards the target
         if (currentTarget != null)
         {
+            float distanceToTarget = Vector3.Distance(transform.position, currentTarget.position);
             // Move towards the target
-            MoveTowardsTarget();
-
-            // Trigger walking animation if moving
-            if (!isAttacking)
+            if (distanceToTarget > attackRange)
             {
-                animator.SetBool("isWalking", true); // Set walking animation
+                MoveTowardsTarget();
+                animator.SetBool("isWalking", true);
             }
+            else if (!isAttacking)
+            {
+                Attack();
+                animator.SetBool("isWalking", false);
+            }
+            
         }
         else
         {

@@ -8,6 +8,8 @@ TagManager:
   - Team2
   - Waypoint
   - Bridge
+  - Building
+  - Troop
   layers:
   - Default
   - TransparentFX
