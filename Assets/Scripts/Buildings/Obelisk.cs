@@ -9,6 +9,12 @@ public class Obelisk : BaseBuilding
 
     private Transform currentTarget; // The current target being attacked by the laser
 
+    /*
+    [Header("Attack Range Visualization")]
+    public GameObject attackRangePrefab; // Reference to the prefab for the attack range visualization
+    private GameObject attackRangeIndicator;
+    */
+
     protected override void Start()
     {
         base.Start();
@@ -17,6 +23,16 @@ public class Obelisk : BaseBuilding
         {
             laserBeam.enabled = false; // Initially hide the laser beam
         }
+        /*
+
+        if (attackRangePrefab != null)
+        {
+            attackRangeIndicator = Instantiate(attackRangePrefab, transform.position, Quaternion.identity);
+            attackRangeIndicator.transform.localScale = new Vector3(attackRange * 2, 1, attackRange * 2);
+            attackRangeIndicator.transform.position = new Vector3(transform.position.x, 0.01f, transform.position.z); // Slightly above ground
+            attackRangeIndicator.SetActive(true);
+        }
+        */
 
         FindTarget();
     }
@@ -38,6 +54,13 @@ public class Obelisk : BaseBuilding
                 DisableLaser();
             }
         }
+        /*
+
+        if (attackRangeIndicator != null)
+        {
+            attackRangeIndicator.transform.position = new Vector3(transform.position.x, 0.01f, transform.position.z);
+        }
+        */
     }
 
     // Finds the closest enemy within range
@@ -96,6 +119,11 @@ public class Obelisk : BaseBuilding
     {
         base.Die();
         DisableLaser(); // Disable the laser beam when the obelisk is destroyed
+        /*
+        if (attackRangeIndicator != null)
+        {
+            Destroy(attackRangeIndicator);
+        }*/
         Debug.Log("Obelisk has been destroyed.");
     }
 }

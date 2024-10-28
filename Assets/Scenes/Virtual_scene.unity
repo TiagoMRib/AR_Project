@@ -387,6 +387,44 @@ MonoBehaviour:
   mCastedBehaviour: {fileID: 931955926}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
+--- !u!114 &931955930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738901197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 931955926}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: challenge
+  mDatasetName: Vuforia/AR_Project.xml
+  mCastedBehaviour: {fileID: 931955926}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &931955933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738901197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 931955926}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: challenge
+  mDatasetName: Vuforia/AR_Project.xml
+  mCastedBehaviour: {fileID: 931955926}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
 --- !u!1 &1393671216 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 436828417733466384, guid: 370862bf81fe07446903da282208d2c3, type: 3}
@@ -438,6 +476,25 @@ MonoBehaviour:
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
 --- !u!114 &1393671222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393671216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 1393671218}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: shroom
+  mDatasetName: Vuforia/AR_Project.xml
+  mCastedBehaviour: {fileID: 1393671218}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &1393671225
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -541,6 +598,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1516961440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516961433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 1516961436}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: bat_qr
+  mDatasetName: Vuforia/AR_Project.xml
+  mCastedBehaviour: {fileID: 1516961436}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &1516961444
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -784,6 +860,44 @@ MonoBehaviour:
   mCastedBehaviour: {fileID: 1962593531}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
+--- !u!114 &1962593540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962593529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 1962593531}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: obelisk
+  mDatasetName: Vuforia/AR_Project.xml
+  mCastedBehaviour: {fileID: 1962593531}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
+--- !u!114 &1962593543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962593529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 1962593531}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: obelisk
+  mDatasetName: Vuforia/AR_Project.xml
+  mCastedBehaviour: {fileID: 1962593531}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
 --- !u!1 &1965426051 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 647740630633456134, guid: 21836df868523f64291cd1fe1e364483, type: 3}
@@ -824,6 +938,25 @@ MonoBehaviour:
   mCastedBehaviour: {fileID: 2033143052}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
+--- !u!114 &2033143058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033143050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 2033143052}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: mudgolem
+  mDatasetName: Vuforia/AR_Project.xml
+  mCastedBehaviour: {fileID: 2033143052}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
 --- !u!1001 &3472793680505081768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -837,6 +970,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1962133341583981469, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962133341583981469, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
       propertyPath: m_TagString
       value: Team1
       objectReference: {fileID: 0}
@@ -846,7 +983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2763741268351764310, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6393836605817527499, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
       propertyPath: mHiddenRoot
@@ -916,6 +1053,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2763741268351764310, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1516961440}
+    - targetCorrespondingSourceObject: {fileID: 2763741268351764310, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1516961444}
   m_SourcePrefab: {fileID: 100100000, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
 --- !u!1001 &4106622094110207527
 PrefabInstance:
@@ -1009,6 +1149,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4629822616779320166, guid: 85ea1436ad0ca4942b78b7a6a1933b6a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 931955929}
+    - targetCorrespondingSourceObject: {fileID: 4629822616779320166, guid: 85ea1436ad0ca4942b78b7a6a1933b6a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 931955930}
+    - targetCorrespondingSourceObject: {fileID: 4629822616779320166, guid: 85ea1436ad0ca4942b78b7a6a1933b6a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 931955933}
   m_SourcePrefab: {fileID: 100100000, guid: 85ea1436ad0ca4942b78b7a6a1933b6a, type: 3}
 --- !u!1001 &4695542792604707335
 PrefabInstance:
@@ -1125,6 +1271,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8713621226839321285, guid: afa40e424618bcd44b043e130568af6f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1962593539}
+    - targetCorrespondingSourceObject: {fileID: 8713621226839321285, guid: afa40e424618bcd44b043e130568af6f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1962593540}
+    - targetCorrespondingSourceObject: {fileID: 8713621226839321285, guid: afa40e424618bcd44b043e130568af6f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1962593543}
   m_SourcePrefab: {fileID: 100100000, guid: afa40e424618bcd44b043e130568af6f, type: 3}
 --- !u!120 &4695542792604707336 stripped
 LineRenderer:
@@ -1209,7 +1361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7614212339931074166, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7462484287253778393, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
@@ -1219,6 +1371,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7614212339931074166, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2033143055}
+    - targetCorrespondingSourceObject: {fileID: 7614212339931074166, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2033143058}
   m_SourcePrefab: {fileID: 100100000, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
 --- !u!1001 &5389181455950728870
 PrefabInstance:
@@ -1234,7 +1389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 436828417733466384, guid: 370862bf81fe07446903da282208d2c3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 547010572690274193, guid: 370862bf81fe07446903da282208d2c3, type: 3}
       propertyPath: gameInitialization
@@ -1355,6 +1510,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 436828417733466384, guid: 370862bf81fe07446903da282208d2c3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1393671222}
+    - targetCorrespondingSourceObject: {fileID: 436828417733466384, guid: 370862bf81fe07446903da282208d2c3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1393671225}
   m_SourcePrefab: {fileID: 100100000, guid: 370862bf81fe07446903da282208d2c3, type: 3}
 --- !u!1001 &6762659894423063036
 PrefabInstance:
@@ -1368,13 +1526,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 647740630633456134, guid: 21836df868523f64291cd1fe1e364483, type: 3}
+      propertyPath: m_TagString
+      value: Team2
+      objectReference: {fileID: 0}
     - target: {fileID: 1570733656311868484, guid: 21836df868523f64291cd1fe1e364483, type: 3}
       propertyPath: m_Name
       value: Graveyard_Card
       objectReference: {fileID: 0}
     - target: {fileID: 1570733656311868484, guid: 21836df868523f64291cd1fe1e364483, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2745571127541917935, guid: 21836df868523f64291cd1fe1e364483, type: 3}
       propertyPath: mPreview
