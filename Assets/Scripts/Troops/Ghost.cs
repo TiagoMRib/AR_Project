@@ -17,10 +17,8 @@ public class Ghost : BaseTroop
 
         base.Start(); // Call the base class Start method
 
-        // Set the target to the opposite side
-        currentTarget = new GameObject("GhostTarget").transform;
-        currentTarget.position = (teamTag == "Team1") ? new Vector3(-100, transform.position.y, transform.position.z)
-                                                     : new Vector3(100, transform.position.y, transform.position.z);
+        // Find and set the target castle based on the team
+        SetTargetCastle();
 
         // Start the vanishing process after a certain time
         StartCoroutine(VanishAfterTime());
@@ -28,7 +26,7 @@ public class Ghost : BaseTroop
 
     protected override void Update()
     {
-        // Move towards the target (opposite side)
+        // Move towards the target (enemy castle)
         if (currentTarget != null && !isVanishing)
         {
             MoveTowardsTarget();
@@ -47,16 +45,41 @@ public class Ghost : BaseTroop
         // Ignore any damage
     }
 
-    // FindTarget is not needed, as ghosts have a predefined target
+    // Ghosts have a predefined target, so FindTarget is not needed
     protected override void FindTarget()
     {
         // No need to find any target for the ghost
     }
 
+    // Find the enemy castle based on the ghost's team and set it as the target
+    private void SetTargetCastle()
+    {
+        // Determine the enemy team's tag based on the ghost's team
+        string enemyTeamTag = (teamTag == "Team1") ? "Team2" : "Team1";
+
+        // Find all objects tagged with the enemy team tag
+        GameObject[] potentialTargets = GameObject.FindGameObjectsWithTag(enemyTeamTag);
+
+        foreach (GameObject obj in potentialTargets)
+        {
+            // Check if the object has the MainCastle component
+            MainCastle enemyCastle = obj.GetComponent<MainCastle>();
+            if (enemyCastle != null)
+            {
+                // Set the enemy castle as the ghost's target
+                currentTarget = enemyCastle.transform;
+                Debug.Log($"{gameObject.name} is targeting {enemyCastle.name} at position {currentTarget.position}");
+                return;
+            }
+        }
+
+        // If no enemy castle is found, log a warning
+        Debug.LogWarning("Enemy castle not found. Make sure the castle has the correct tag and component.");
+    }
+
     // Coroutine to handle the vanishing after a set time
     private IEnumerator VanishAfterTime()
     {
-        
         yield return new WaitForSeconds(lifetime - 1f); // Wait for most of the lifetime before playing animation
 
         isVanishing = true;
@@ -70,13 +93,12 @@ public class Ghost : BaseTroop
         yield return new WaitForSeconds(1f); // Wait for the scared animation to finish
 
         // Start the vanishing process
-        
         if (animator != null)
         {
             animator.SetTrigger("Vanish");
         }
 
-        yield return new WaitForSeconds(3f); // Wait for the vanish animation
+        yield return new WaitForSeconds(2f); // Wait for the vanish animation
 
         Die(); // Destroy the ghost after vanishing
     }
@@ -85,10 +107,6 @@ public class Ghost : BaseTroop
     protected override void Die()
     {
         Debug.Log(gameObject.name + " vanished.");
-        if (currentTarget != null)
-        {
-            Destroy(currentTarget.gameObject); // Clean up the temporary target
-        }
         Destroy(gameObject);
     }
 }

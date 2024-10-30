@@ -10,9 +10,6 @@ public class GameInitialization : MonoBehaviour
     public GameObject arenaPrefab; // The arena prefab to enable/disable
     public Canvas startGameCanvas; // The canvas containing the "Start Game" button
 
-    private Vector3 fixedArenaPosition; // To store the arena's position when the game starts
-    private Quaternion fixedArenaRotation; // To store the arena's rotation when the game starts
-
     void Start()
     {
         observerBehaviour = GetComponent<ObserverBehaviour>();
@@ -73,11 +70,11 @@ public class GameInitialization : MonoBehaviour
         Debug.Log("Game started!");
         gameStarted = true;
 
-        // Fix the arena's position and rotation when the game starts
+        // Parent the arena to the card to keep it fixed relative to the card
         if (arenaPrefab != null)
         {
-            fixedArenaPosition = arenaPrefab.transform.position;
-            fixedArenaRotation = arenaPrefab.transform.rotation;
+            arenaPrefab.transform.SetParent(transform, worldPositionStays: true);
+            arenaPrefab.SetActive(true);
         }
 
         UpdateUIVisibility();
@@ -107,15 +104,5 @@ public class GameInitialization : MonoBehaviour
     private void OnMatchEnded()
     {
         UpdateUIVisibility();
-    }
-
-    void LateUpdate()
-    {
-        if (gameStarted && arenaPrefab != null)
-        {
-            // Keep the arena's position and rotation fixed once the game has started
-            arenaPrefab.transform.position = fixedArenaPosition;
-            arenaPrefab.transform.rotation = fixedArenaRotation;
-        }
     }
 }

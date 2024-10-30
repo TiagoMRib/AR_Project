@@ -76,8 +76,13 @@ public class BuildingCard : MonoBehaviour
         // Spawn the building only if the card is detected, the game is running, and no building is currently spawned
         if (cardDetected && gameRunning && buildingPrefab != null && spawnedBuilding == null)
         {
-            // Instantiate the building at the card's position
+            // Instantiate the building at the card's position and parent it to the card
             spawnedBuilding = Instantiate(buildingPrefab, transform.position, transform.rotation);
+            spawnedBuilding.transform.SetParent(transform); // Parent the building to the card
+            
+            // Optionally, adjust the local position to be slightly above the card
+            spawnedBuilding.transform.localPosition = new Vector3(0, 0.1f, 0); // Adjust Y position if needed
+            
             spawnedBuilding.SetActive(true);
             Debug.Log("Building spawned at " + transform.position);
         }
