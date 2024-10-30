@@ -100,6 +100,11 @@ private IEnumerator AttackCoroutine(BaseBuilding building, BaseTroop troop)
 
     while (currentTarget != null && Vector3.Distance(transform.position, currentTarget.position) <= attackRange)
     {
+        if (animator != null)
+        {
+            animator.SetTrigger("Attack");
+        }
+        
         // If attacking a building, ensure it's not dead
         if (building != null)
         {
@@ -129,10 +134,7 @@ private IEnumerator AttackCoroutine(BaseBuilding building, BaseTroop troop)
         yield return new WaitForSeconds(attackCooldown);
 
         // Trigger the attack animation
-        if (animator != null)
-        {
-            animator.SetTrigger("Attack");
-        }
+        
     }
 
     // Stop the attack animation when the attack loop ends

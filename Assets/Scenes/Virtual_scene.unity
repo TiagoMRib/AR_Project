@@ -709,7 +709,7 @@ MonoBehaviour:
   troopPrefab: {fileID: 1826437733}
   spawnPoint: {fileID: 1826437734}
   summonCanvas: {fileID: 1518869036}
---- !u!114 &1393671235
+--- !u!114 &1393671223
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -812,7 +812,7 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: 8a9a760f95896c34689febc965510927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1516961457
+--- !u!114 &1516961440
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1044,7 +1044,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699654277}
   m_LocalRotation: {x: 0.0009565054, y: -0.7071062, z: 0.7071062, w: 0.0009565054}
-  m_LocalPosition: {x: 0, y: 0, z: 5.310234}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1053,7 +1053,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -3.775654, y: 0.78}
+  m_AnchoredPosition: {x: 0, y: 0.78}
   m_SizeDelta: {x: 9, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1777663371
@@ -1299,7 +1299,7 @@ MonoBehaviour:
   troopPrefab: {fileID: 196026964}
   spawnPoint: {fileID: 2033143061}
   summonCanvas: {fileID: 1699654278}
---- !u!114 &2033143065
+--- !u!114 &2033143064
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1344,7 +1344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2763741268351764310, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6393836605817527499, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
       propertyPath: mHiddenRoot
@@ -1413,7 +1413,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2763741268351764310, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1516961457}
+      addedObject: {fileID: 1516961440}
   m_SourcePrefab: {fileID: 100100000, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
 --- !u!1001 &4106622094110207527
 PrefabInstance:
@@ -1734,7 +1734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7614212339931074166, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8554865365290214122, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
       propertyPath: OnTargetLost.m_PersistentCalls.m_Calls.Array.size
@@ -1805,7 +1805,7 @@ PrefabInstance:
       addedObject: {fileID: 2033143062}
     - targetCorrespondingSourceObject: {fileID: 7614212339931074166, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2033143065}
+      addedObject: {fileID: 2033143064}
   m_SourcePrefab: {fileID: 100100000, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
 --- !u!1001 &5389181455950728870
 PrefabInstance:
@@ -1901,7 +1901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1053727336167695899, guid: 370862bf81fe07446903da282208d2c3, type: 3}
       propertyPath: damage
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1053727336167695899, guid: 370862bf81fe07446903da282208d2c3, type: 3}
       propertyPath: attackRange
@@ -2006,7 +2006,7 @@ PrefabInstance:
       addedObject: {fileID: 1393671220}
     - targetCorrespondingSourceObject: {fileID: 436828417733466384, guid: 370862bf81fe07446903da282208d2c3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1393671235}
+      addedObject: {fileID: 1393671223}
   m_SourcePrefab: {fileID: 100100000, guid: 370862bf81fe07446903da282208d2c3, type: 3}
 --- !u!1001 &6762659894423063036
 PrefabInstance:
@@ -2091,6 +2091,10 @@ PrefabInstance:
     - target: {fileID: 8161633119448948229, guid: 21836df868523f64291cd1fe1e364483, type: 3}
       propertyPath: teamTag
       value: Team2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8161633119448948229, guid: 21836df868523f64291cd1fe1e364483, type: 3}
+      propertyPath: maxHealth
+      value: 400
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7011622039719818958, guid: 21836df868523f64291cd1fe1e364483, type: 3}

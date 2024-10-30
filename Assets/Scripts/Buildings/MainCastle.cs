@@ -18,6 +18,12 @@ public class MainCastle : BaseBuilding
         UpdateModel(); 
     }
 
+    protected override void Update()
+    {
+        base.Update();
+        UpdateModel(); 
+    }
+
 
     public override void TakeDamage(float amount)
     {
@@ -43,7 +49,7 @@ public class MainCastle : BaseBuilding
             brokenModel.SetActive(false);
             destroyedModel.SetActive(false);
         }
-        else if (currentHealth > 0f)
+        else if (currentHealth > 0.25*maxHealth)
         {
             // Castle is damaged
             intactModel.SetActive(false);

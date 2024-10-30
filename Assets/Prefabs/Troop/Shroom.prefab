@@ -49,8 +49,8 @@ MonoBehaviour:
   flyer: 0
   troopType: Normal
   health: 100
-  damage: 10
-  attackRange: 2.05
+  damage: 50
+  attackRange: 3
   attackCooldown: 1
   speed: 5
   teamTag: Team1

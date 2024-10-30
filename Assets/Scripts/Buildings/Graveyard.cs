@@ -7,10 +7,20 @@ public class Graveyard : BaseBuilding
     public GameObject ghostPrefab; // Prefab for the ghost unit
     public float spawnInterval = 5f; // Time interval between spawning ghosts
 
+    public GameObject intactModel;    // The model for the intact castle
+    public GameObject brokenModel;
+
     protected override void Start()
     {
         base.Start();
+        UpdateModel();
         StartCoroutine(SpawnGhostRoutine()); // Start the spawning routine
+    }
+
+        protected override void Update()
+    {
+        base.Update();
+        UpdateModel(); 
     }
 
     // Coroutine to spawn ghosts at regular intervals
@@ -57,6 +67,23 @@ public class Graveyard : BaseBuilding
     {
         base.Die();
         Debug.Log("Graveyard has been destroyed and will no longer spawn ghosts.");
+    }
+
+    private void UpdateModel()
+    {
+        // Enable/disable models based on health percentage
+        if (currentHealth > 0.4*maxHealth)
+        {
+            // Castle is in good condition
+            intactModel.SetActive(true);
+            brokenModel.SetActive(false);
+        }
+        else
+        {
+            // Castle is damaged
+            intactModel.SetActive(false);
+            brokenModel.SetActive(true);
+        }
     }
 }
 

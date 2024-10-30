@@ -13,7 +13,6 @@ public abstract class BaseBuilding : MonoBehaviour
 
     public string teamTag;  
     public string enemyTeamTag;
-    
     public bool isDead = false;
 
     // Start is called before the first frame update
