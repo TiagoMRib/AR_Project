@@ -17,6 +17,7 @@ public class Mushroom : BaseTroop
     // Find the closest enemy to attack
     protected override void FindTarget()
     {
+        animator.SetBool("isWalking", true); 
         Debug.Log("Movement: Mushroom is finding the closest enemy.");
         GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag(enemyTeamTag);
         if (enemyObjects.Length == 0)
@@ -48,7 +49,9 @@ public class Mushroom : BaseTroop
     {
         if (currentTarget != null)
         {
+            Debug.Log("Mushroom has target: " + currentTarget);
             float distanceToTarget = Vector3.Distance(transform.position, currentTarget.position);
+            Debug.Log("Distance to target: " + distanceToTarget);
             if (distanceToTarget <= attackRange)
             {
                 animator.SetBool("isWalking",false);
@@ -74,6 +77,8 @@ public class Mushroom : BaseTroop
             animator.SetBool("isWalking", false);
             FindTarget();
         }
+
+        Debug.Log("Mushroom walking: " + animator.GetBool("isWalking"));
             
         
     }
