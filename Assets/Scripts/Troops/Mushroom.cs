@@ -29,12 +29,16 @@ public class Mushroom : BaseTroop
 
         foreach (GameObject enemy in enemyObjects)
         {
-            float distance = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distance < closestDistance && !enemy.GetComponent<BaseBuilding>().isDead)
+            if (enemy != null)
             {
-                closestDistance = distance;
-                currentTarget = enemy.transform;
+                float distance = Vector3.Distance(transform.position, enemy.transform.position);
+                if (distance < closestDistance && !enemy.GetComponent<BaseBuilding>().isDead)
+                {
+                    closestDistance = distance;
+                    currentTarget = enemy.transform;
+                }
             }
+            
         }
 
         Debug.Log("Mushroom found the closest enemy: " + currentTarget);
@@ -47,35 +51,38 @@ public class Mushroom : BaseTroop
             float distanceToTarget = Vector3.Distance(transform.position, currentTarget.position);
             if (distanceToTarget <= attackRange)
             {
+                animator.SetBool("isWalking",false);
                 Attack(); // Attack if within range
             }
             else
             {
-                if (currentTarget != null)
-        {
-            // Move towards the target
-            MoveTowardsTarget();
+               
+                // Move towards the target
+                MoveTowardsTarget();
 
-            // Trigger walking animation if moving
-            if (!isAttacking)
-            {
-                animator.SetBool("isWalking", true); // Set walking animation
+                // Trigger walking animation if moving
+                if (!isAttacking)
+                {
+                    animator.SetBool("isWalking", true); // Set walking animation
+                }
+            
             }
         }
         else
         {
             // If no target, stop the walking animation
             animator.SetBool("isWalking", false);
+            FindTarget();
         }
-            }
-        }
+            
+        
     }
 
 
     // Overriding the Attack method for the Mushroom troop to attack with a projectile
     protected override void Attack()
     {
-        if (currentTarget != null && !isAttacking)
+        if (currentTarget != null && !isAttacking && !currentTarget.GetComponent<BaseBuilding>().isDead)
         {
             Debug.Log("Attack: Mushroom attacks the building: " + currentTarget.name);
             StartCoroutine(FireProjectile(currentTarget)); // Start the projectile firing coroutine
@@ -105,6 +112,6 @@ public class Mushroom : BaseTroop
 
         isAttacking = false; // Reset attacking state
         animator.SetTrigger("Idle"); // Set back to idle animation
-        FindTarget(); // Find a new target if the current one is gone
+        FindTarget();
     }
 }

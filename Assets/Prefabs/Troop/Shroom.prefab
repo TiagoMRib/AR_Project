@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5111575523873618308}
   - component: {fileID: 3549368274315961591}
+  - component: {fileID: 3943256684132597135}
   m_Layer: 0
   m_Name: Shroom
   m_TagString: Untagged
@@ -49,14 +50,37 @@ MonoBehaviour:
   troopType: Normal
   health: 100
   damage: 10
-  attackRange: 1
+  attackRange: 2.05
   attackCooldown: 1
   speed: 5
   teamTag: Team1
   enemyTeamTag: 
+  agent: {fileID: 3943256684132597135}
   pathPoints: []
   projectilePrefab: {fileID: 90812020871083512, guid: 9a0556a429b06db48a77c0f54c9ffbc2, type: 3}
   projectileSpeed: 10
+--- !u!195 &3943256684132597135
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2970995484512924317}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 1
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 2
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 1
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &4512227395123724796
 PrefabInstance:
   m_ObjectHideFlags: 0

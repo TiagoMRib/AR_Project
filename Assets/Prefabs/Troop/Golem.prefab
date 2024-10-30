@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3511875294026142632}
   - component: {fileID: 5568597113413227180}
+  - component: {fileID: 4610309256154512616}
   m_Layer: 0
   m_Name: Golem
   m_TagString: Untagged
@@ -54,7 +55,30 @@ MonoBehaviour:
   speed: 1
   teamTag: Team1
   enemyTeamTag: 
+  agent: {fileID: 4610309256154512616}
   pathPoints: []
+--- !u!195 &4610309256154512616
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8083784037439107555}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 1
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 1
+  m_AutoTraverseOffMeshLink: 0
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 1
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &6596859945841648289
 PrefabInstance:
   m_ObjectHideFlags: 0
