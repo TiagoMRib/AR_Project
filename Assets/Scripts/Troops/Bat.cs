@@ -100,11 +100,8 @@ private IEnumerator AttackCoroutine(BaseBuilding building, BaseTroop troop)
 
     while (currentTarget != null && Vector3.Distance(transform.position, currentTarget.position) <= attackRange)
     {
-        if (animator != null)
-        {
-            animator.SetTrigger("Attack");
-        }
         
+
         // If attacking a building, ensure it's not dead
         if (building != null)
         {
@@ -112,6 +109,11 @@ private IEnumerator AttackCoroutine(BaseBuilding building, BaseTroop troop)
             {
                 Debug.Log("Attack: Target building is dead. Stopping attack.");
                 break;
+            }
+
+            if (animator != null)
+            {
+               animator.SetTrigger("Attack");
             }
 
             building.TakeDamage(damage);
@@ -126,23 +128,31 @@ private IEnumerator AttackCoroutine(BaseBuilding building, BaseTroop troop)
                 break;
             }
 
+            if (animator != null)
+            {
+                animator.SetTrigger("Attack");
+            }
+
             troop.TakeDamage(damage);
             Debug.Log("Bat deals " + damage + " damage to " + troop.troopType);
         }
 
+
+
         // Wait for the cooldown before the next attack
         yield return new WaitForSeconds(attackCooldown);
 
-        // Trigger the attack animation
+        
         
     }
 
     // Stop the attack animation when the attack loop ends
-    if (animator != null)
-    {
-        animator.ResetTrigger("Attack");
-        animator.SetTrigger("Idle"); // Optionally, set the animation state back to "Idle" or a default state
-    }
+        if (animator != null)
+        {
+            animator.ResetTrigger("Attack");
+            animator.SetTrigger("Idle"); // Optionally, set the animation state back to "Idle" or a default state
+        }
+    
 
     isAttacking = false;
     FindTarget(); // Search for a new target if the current one is gone

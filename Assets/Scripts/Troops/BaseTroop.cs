@@ -71,6 +71,7 @@ public abstract class BaseTroop : MonoBehaviour
     {
         if (flyer)
         {
+            Debug.Log("Movement: " + gameObject.name + " is flying towards the target.");
             BaseMovement();
         }
         else

@@ -1344,7 +1344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2763741268351764310, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6393836605817527499, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
       propertyPath: mHiddenRoot
@@ -1821,7 +1821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 436828417733466384, guid: 370862bf81fe07446903da282208d2c3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 547010572690274193, guid: 370862bf81fe07446903da282208d2c3, type: 3}
       propertyPath: gameInitialization
