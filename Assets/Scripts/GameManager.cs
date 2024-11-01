@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public bool IsMatchRunning { get; private set; } = false;
 
+    public ManaSystem ManaSystem;
+
     public event Action OnMatchStarted;
     public event Action OnMatchEnded;
 
@@ -24,7 +26,15 @@ public class GameManager : MonoBehaviour
     public void StartMatch()
     {
         IsMatchRunning = true;
+        
+        // Reset Mana System when the match starts
+        if (ManaSystem != null)
+        {
+            ManaSystem.Initialize(); // Reset and initialize mana
+        }
+        
         OnMatchStarted?.Invoke();
+        
         Debug.Log("Match started!");
     }
 
@@ -33,5 +43,10 @@ public class GameManager : MonoBehaviour
         IsMatchRunning = false;
         OnMatchEnded?.Invoke();
         Debug.Log("Match ended.");
+    }
+
+    public bool CanSpendMana(float amount)
+    {
+        return ManaSystem != null && ManaSystem.SpendMana(amount);
     }
 }

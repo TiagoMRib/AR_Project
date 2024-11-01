@@ -24,6 +24,9 @@ public abstract class BaseTroop : MonoBehaviour
     public NavMeshAgent agent;
     public List<Transform> pathPoints = new List<Transform>();
 
+    [Header("Mana Reward Settings")]
+    public float manaReward = 10f;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -96,6 +99,13 @@ public abstract class BaseTroop : MonoBehaviour
     protected virtual void Die()
     {
         Debug.Log(gameObject.name + " died.");
+
+        if (teamTag == "Team2")
+        {
+            // Award mana to the player
+            GameManager.Instance?.ManaSystem.GainMana(manaReward);
+        }
+
         Destroy(gameObject);
     }
 

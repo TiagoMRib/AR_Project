@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2745571127541917935}
   - component: {fileID: 3560778487217297576}
   - component: {fileID: 7011622039719818958}
+  - component: {fileID: 5062054163213235288}
   m_Layer: 0
   m_Name: Graveyard_Card
   m_TagString: Untagged
@@ -125,6 +126,19 @@ MonoBehaviour:
   mCastedBehaviour: {fileID: 2745571127541917935}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
+--- !u!114 &5062054163213235288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570733656311868484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d02dd641c6ae348bde537de753cd18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingPrefab: {fileID: 647740630633456134}
 --- !u!1001 &2456542267407894014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -194,6 +208,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b944825d956cb88458b3d1d535d4307a, type: 3}
+--- !u!1 &647740630633456134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3092381429844813816, guid: b944825d956cb88458b3d1d535d4307a, type: 3}
+  m_PrefabInstance: {fileID: 2456542267407894014}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1378682174361013197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3545867890545069619, guid: b944825d956cb88458b3d1d535d4307a, type: 3}

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3241449169945243136}
   - component: {fileID: 5542876453373530175}
   - component: {fileID: 2790709433579458440}
+  - component: {fileID: 8726062801208795629}
   m_Layer: 0
   m_Name: Obelisk_Card
   m_TagString: Untagged
@@ -125,6 +126,19 @@ MonoBehaviour:
   mCastedBehaviour: {fileID: 3241449169945243136}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
+--- !u!114 &8726062801208795629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8713621226839321285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d02dd641c6ae348bde537de753cd18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingPrefab: {fileID: 6860370109462849149}
 --- !u!1001 &8171283547830611072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -185,5 +199,10 @@ PrefabInstance:
 --- !u!4 &4658458012383566941 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3584885054303514845, guid: 4421f3b3255195940bd44a0ef949f3fe, type: 3}
+  m_PrefabInstance: {fileID: 8171283547830611072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6860370109462849149 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3337964829000485629, guid: 4421f3b3255195940bd44a0ef949f3fe, type: 3}
   m_PrefabInstance: {fileID: 8171283547830611072}
   m_PrefabAsset: {fileID: 0}

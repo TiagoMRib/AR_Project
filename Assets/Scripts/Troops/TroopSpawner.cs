@@ -1,16 +1,23 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Vuforia;
+using System.Collections;
+using TMPro;
 
 public class TroopSpawner : MonoBehaviour
 {
     public GameObject troopPrefab; // The troop prefab to spawn
     public Transform spawnPoint; // Where the troop will spawn relative to the card
-    public Canvas summonCanvas; // Reference to the canvas containing the summon button
+    public Canvas summonCanvas; // Reference to the canvas containing the summon text UI
+
+    public float troopManaCost; // Mana cost for summoning this troop
+    public float summonCooldown = 3f; // Cooldown time after summoning
 
     private ObserverBehaviour observerBehaviour;
     private bool cardDetected = false;
     private bool gameRunning = false;
+    private bool isCooldownActive = false; // Track cooldown status
+    private TextMeshProUGUI manaCostText; // Text element to display mana cost
 
     void Start()
     {
@@ -18,7 +25,6 @@ public class TroopSpawner : MonoBehaviour
 
         if (observerBehaviour)
         {
-            // Register for status change events
             observerBehaviour.OnTargetStatusChanged += OnTargetStatusChanged;
         }
 
@@ -26,27 +32,24 @@ public class TroopSpawner : MonoBehaviour
         if (summonCanvas != null)
         {
             summonCanvas.gameObject.SetActive(false);
-            Button summonButton = summonCanvas.GetComponentInChildren<Button>();
-            if (summonButton != null)
-            {
-                summonButton.onClick.AddListener(SummonTroop); // Add listener to the summon button
-            }
+            manaCostText = summonCanvas.GetComponentInChildren<TextMeshProUGUI>(); // Find Text component within summonCanvas
         }
 
         // Subscribe to game state changes
         GameManager.Instance.OnMatchStarted += OnMatchStarted;
         GameManager.Instance.OnMatchEnded += OnMatchEnded;
+
+        // Display mana cost on the UI
+        UpdateManaCostDisplay();
     }
 
     void OnDestroy()
     {
         if (observerBehaviour)
         {
-            // Unregister from status change events
             observerBehaviour.OnTargetStatusChanged -= OnTargetStatusChanged;
         }
 
-        // Unsubscribe from game state changes
         if (GameManager.Instance != null)
         {
             GameManager.Instance.OnMatchStarted -= OnMatchStarted;
@@ -62,7 +65,6 @@ public class TroopSpawner : MonoBehaviour
 
     private void OnMatchStarted()
     {
-        Debug.Log("UI: Match Started");
         gameRunning = true;
         UpdateSummonCanvasVisibility();
     }
@@ -73,38 +75,76 @@ public class TroopSpawner : MonoBehaviour
         UpdateSummonCanvasVisibility();
     }
 
-    public void OnTargetFound()
-    {
-        Debug.Log("UI: Card Detected");
-        cardDetected = true;
-        UpdateSummonCanvasVisibility();
-    }
-
-    public void OnTargetLost()
-    {
-        Debug.Log("UI: Card Lost");
-        cardDetected = false;
-        UpdateSummonCanvasVisibility();
-    }
-
     private void UpdateSummonCanvasVisibility()
     {
-        // Show the summon canvas only if the game is running and the card is detected
+        // Show the summon canvas only if the game is running, the card is detected
         if (summonCanvas != null)
         {
-            Debug.Log("UI: Canvas visible? " + (gameRunning && cardDetected));
             summonCanvas.gameObject.SetActive(gameRunning && cardDetected);
+            UpdateManaCostDisplay();
+        }
+    }
+
+    private void UpdateManaCostDisplay()
+    {
+        if (manaCostText != null)
+        {
+            // Display the mana cost and change color based on affordability
+            manaCostText.text = $"-{troopManaCost} Mana";
+            if (GameManager.Instance.ManaSystem.currentMana >= troopManaCost)
+            {
+                manaCostText.color = Color.blue; // Sufficient mana
+            }
+            else
+            {
+                manaCostText.color = Color.red; // Insufficient mana
+            }
         }
     }
 
     private void SummonTroop()
     {
-        if (cardDetected && gameRunning && troopPrefab != null && spawnPoint != null)
+        if (cardDetected && gameRunning && !isCooldownActive && troopPrefab != null && spawnPoint != null)
         {
-            // Instantiate the troop at the specified spawn point
-            GameObject summonedTroop = Instantiate(troopPrefab, spawnPoint.position, spawnPoint.rotation);
-            summonedTroop.SetActive(true);
-            Debug.Log("Troop summoned!");
+            // Check if the player has enough mana
+            if (GameManager.Instance.CanSpendMana(troopManaCost))
+            {
+                // Instantiate the troop at the specified spawn point
+                GameObject spawnedTroop = Instantiate(troopPrefab, spawnPoint.position, spawnPoint.rotation);
+                spawnedTroop.SetActive(true);
+
+                Debug.Log("Troop summoned!");
+
+                // Start the cooldown after summoning
+                StartCoroutine(SummonCooldown());
+            }
+            else
+            {
+                Debug.Log("Not enough mana to summon troop.");
+            }
+        }
+    }
+
+    private IEnumerator SummonCooldown()
+    {
+        isCooldownActive = true;
+        UpdateSummonCanvasVisibility(); // Hide canvas during cooldown
+
+        yield return new WaitForSeconds(summonCooldown);
+
+        isCooldownActive = false;
+        UpdateSummonCanvasVisibility(); // Show canvas again after cooldown
+    }
+
+    void Update()
+    {
+        // Continuously update the mana cost color in case mana changes
+        UpdateManaCostDisplay();
+
+        // Summon troop when the card is detected and conditions are met
+        if (cardDetected && gameRunning && !isCooldownActive)
+        {
+            SummonTroop();
         }
     }
 }

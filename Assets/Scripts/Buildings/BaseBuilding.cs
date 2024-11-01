@@ -15,6 +15,9 @@ public abstract class BaseBuilding : MonoBehaviour
     public string enemyTeamTag;
     public bool isDead = false;
 
+    [Header("Mana Reward Settings")]
+    public float manaReward = 50f;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -62,6 +65,14 @@ public abstract class BaseBuilding : MonoBehaviour
     protected virtual void Die()
     {
         isDead = true;
+
+        // Check if this building belongs to the enemy team
+        if (teamTag == "Team2")
+        {
+            // Award mana to the player
+            GameManager.Instance?.ManaSystem.GainMana(manaReward);
+        }
+
         Destroy(gameObject);  // Remove the building from the scene
     }
 }
