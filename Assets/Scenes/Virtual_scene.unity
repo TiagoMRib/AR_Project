@@ -152,6 +152,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingPrefab: {fileID: 1965426051}
+  manaCost: 50
+  buildDelay: 2
+  cardCanvas: {fileID: 0}
+  manaCostText: {fileID: 264044363}
+  statusText: {fileID: 1282879483}
 --- !u!114 &39973636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,6 +256,17 @@ NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 9076613921925283587, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
   m_PrefabInstance: {fileID: 4918831924212152825}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &264044363 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6852012409508118319, guid: 21836df868523f64291cd1fe1e364483, type: 3}
+  m_PrefabInstance: {fileID: 6762659894423063036}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &474593025 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6860370109462849149, guid: afa40e424618bcd44b043e130568af6f, type: 3}
@@ -897,6 +913,17 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1282879483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5593554647717889393, guid: 21836df868523f64291cd1fe1e364483, type: 3}
+  m_PrefabInstance: {fileID: 6762659894423063036}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1321822240
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,82 +1178,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1516961440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516961433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 1516961436}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: bat_qr
-  mDatasetName: Vuforia/AR_Project.xml
-  mCastedBehaviour: {fileID: 1516961436}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
---- !u!114 &1516961441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516961433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 1516961436}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: bat_qr
-  mDatasetName: Vuforia/AR_Project.xml
-  mCastedBehaviour: {fileID: 1516961436}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
---- !u!114 &1516961442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516961433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 1516961436}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: bat_qr
-  mDatasetName: Vuforia/AR_Project.xml
-  mCastedBehaviour: {fileID: 1516961436}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
---- !u!114 &1516961443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516961433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 1516961436}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: bat_qr
-  mDatasetName: Vuforia/AR_Project.xml
-  mCastedBehaviour: {fileID: 1516961436}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
---- !u!114 &1516961444
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1805,6 +1756,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingPrefab: {fileID: 474593025}
+  manaCost: 50
+  buildDelay: 3
+  cardCanvas: {fileID: 0}
+  manaCostText: {fileID: 0}
+  statusText: {fileID: 0}
 --- !u!114 &1962593539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2026,7 +1982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2763741268351764310, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5436060025840014571, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
       propertyPath: m_LocalScale.x
@@ -2145,18 +2101,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2763741268351764310, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1516961444}
-    - targetCorrespondingSourceObject: {fileID: 2763741268351764310, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1516961443}
-    - targetCorrespondingSourceObject: {fileID: 2763741268351764310, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1516961442}
-    - targetCorrespondingSourceObject: {fileID: 2763741268351764310, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1516961441}
     - targetCorrespondingSourceObject: {fileID: 2763741268351764310, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1516961440}
@@ -2763,7 +2707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 647740630633456134, guid: 21836df868523f64291cd1fe1e364483, type: 3}
       propertyPath: m_TagString
-      value: Team2
+      value: Team1
       objectReference: {fileID: 0}
     - target: {fileID: 1570733656311868484, guid: 21836df868523f64291cd1fe1e364483, type: 3}
       propertyPath: m_Name
@@ -2779,7 +2723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2749626450671750752, guid: 21836df868523f64291cd1fe1e364483, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.04
+      value: 4.66
       objectReference: {fileID: 0}
     - target: {fileID: 2749626450671750752, guid: 21836df868523f64291cd1fe1e364483, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2787,7 +2731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2749626450671750752, guid: 21836df868523f64291cd1fe1e364483, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.56
+      value: -2.14
       objectReference: {fileID: 0}
     - target: {fileID: 2749626450671750752, guid: 21836df868523f64291cd1fe1e364483, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2831,7 +2775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8161633119448948229, guid: 21836df868523f64291cd1fe1e364483, type: 3}
       propertyPath: teamTag
-      value: Team2
+      value: Team1
       objectReference: {fileID: 0}
     - target: {fileID: 8161633119448948229, guid: 21836df868523f64291cd1fe1e364483, type: 3}
       propertyPath: maxHealth

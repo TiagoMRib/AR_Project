@@ -1,14 +1,25 @@
 using UnityEngine;
 using Vuforia;
+using System.Collections;
+using TMPro; // Import for TextMeshPro elements
 
 public class BuildingCard : MonoBehaviour
 {
+    [Header("Building Setup")]
     public GameObject buildingPrefab; // The building prefab to spawn
+    public float manaCost = 50f; // Mana cost to build the building
+    public float buildDelay = 3f; // Delay before the building is constructed
+
+    [Header("UI Elements")]
+    public Canvas cardCanvas; // Canvas attached to the card
+    public TextMeshProUGUI manaCostText; // Text to display mana cost
+    public TextMeshProUGUI statusText; // Text to show build status ("Building..." or empty)
 
     private ObserverBehaviour observerBehaviour;
     private bool cardDetected = false;
     private bool gameRunning = false;
     private GameObject spawnedBuilding = null; // To keep track of the spawned building
+    private bool isBuilding = false; // Flag to indicate if a building is under construction
 
     void Start()
     {
@@ -16,24 +27,36 @@ public class BuildingCard : MonoBehaviour
 
         if (observerBehaviour)
         {
-            // Register for status change events
             observerBehaviour.OnTargetStatusChanged += OnTargetStatusChanged;
         }
 
-        // Subscribe to game state changes
         GameManager.Instance.OnMatchStarted += OnMatchStarted;
         GameManager.Instance.OnMatchEnded += OnMatchEnded;
+
+        // Initialize UI elements
+        if (manaCostText != null)
+        {
+            manaCostText.text = "Cost: " + manaCost;
+        }
+        if (statusText != null)
+        {
+            statusText.text = ""; // Clear the status text initially
+        }
+
+        // Ensure the UI is hidden at the start
+        if (cardCanvas != null)
+        {
+            cardCanvas.enabled = false;
+        }
     }
 
     void OnDestroy()
     {
         if (observerBehaviour)
         {
-            // Unregister from status change events
             observerBehaviour.OnTargetStatusChanged -= OnTargetStatusChanged;
         }
 
-        // Unsubscribe from game state changes
         if (GameManager.Instance != null)
         {
             GameManager.Instance.OnMatchStarted -= OnMatchStarted;
@@ -44,26 +67,32 @@ public class BuildingCard : MonoBehaviour
     private void OnTargetStatusChanged(ObserverBehaviour behaviour, TargetStatus targetStatus)
     {
         cardDetected = (targetStatus.Status == Status.TRACKED || targetStatus.Status == Status.EXTENDED_TRACKED);
-
-        // Try to spawn the building when the card is detected
         TrySpawnBuilding();
     }
 
     private void OnMatchStarted()
     {
-        Debug.Log("Game: Match Started");
         gameRunning = true;
 
-        // Try to spawn the building if the card is detected
+        // Show the UI when the match starts
+        if (cardCanvas != null)
+        {
+            cardCanvas.enabled = true;
+        }
+
         TrySpawnBuilding();
     }
 
     private void OnMatchEnded()
     {
-        Debug.Log("Game: Match Ended");
         gameRunning = false;
 
-        // Destroy the spawned building when the game ends
+        // Hide the UI when the match ends
+        if (cardCanvas != null)
+        {
+            cardCanvas.enabled = false;
+        }
+
         if (spawnedBuilding != null)
         {
             Destroy(spawnedBuilding);
@@ -73,28 +102,54 @@ public class BuildingCard : MonoBehaviour
 
     private void TrySpawnBuilding()
     {
-        // Spawn the building only if the card is detected, the game is running, and no building is currently spawned
-        if (cardDetected && gameRunning && buildingPrefab != null && spawnedBuilding == null)
+        if (cardDetected && gameRunning && buildingPrefab != null && spawnedBuilding == null && !isBuilding)
         {
-            // Instantiate the building at the card's position and parent it to the card
-            spawnedBuilding = Instantiate(buildingPrefab, transform.position, transform.rotation);
-            spawnedBuilding.transform.SetParent(transform); // Parent the building to the card
-            
-            // Optionally, adjust the local position to be slightly above the card
-            spawnedBuilding.transform.localPosition = new Vector3(0, 0.1f, 0); // Adjust Y position if needed
-            
-            spawnedBuilding.SetActive(true);
-            Debug.Log("Building spawned at " + transform.position);
+            if (GameManager.Instance.CanSpendMana(manaCost))
+            {
+                StartCoroutine(BuildBuilding()); // Start the building process
+            }
+            else
+            {
+                // Display insufficient mana message
+                if (statusText != null)
+                {
+                    statusText.text = "Not enough mana!";
+                }
+            }
         }
         else if (!cardDetected || !gameRunning)
         {
-            // If the conditions are not met, ensure the building is destroyed
             if (spawnedBuilding != null)
             {
                 Destroy(spawnedBuilding);
                 spawnedBuilding = null;
-                Debug.Log("Building removed");
             }
         }
+    }
+
+    private IEnumerator BuildBuilding()
+    {
+        isBuilding = true;
+        GameManager.Instance.ManaSystem.SpendMana(manaCost); // Spend the mana
+
+        if (statusText != null)
+        {
+            statusText.text = "Building..."; // Show the building status
+        }
+
+        yield return new WaitForSeconds(buildDelay); // Wait for the build delay
+
+        // Instantiate and set up the building
+        spawnedBuilding = Instantiate(buildingPrefab, transform.position, transform.rotation);
+        spawnedBuilding.transform.SetParent(transform); // Parent the building to the card
+        spawnedBuilding.transform.localPosition = new Vector3(0, 0.1f, 0); // Adjust Y position if needed
+        spawnedBuilding.SetActive(true);
+
+        if (statusText != null)
+        {
+            statusText.text = ""; // Clear the status text
+        }
+
+        isBuilding = false;
     }
 }
