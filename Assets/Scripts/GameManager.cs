@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     public event Action OnMatchStarted;
     public event Action OnMatchEnded;
+    
+    public AIOpponent AIOpponent;
 
     private void Awake()
     {
@@ -22,10 +24,13 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
 
     public void StartMatch()
     {
         IsMatchRunning = true;
+        
+        AIOpponent.StartGame();
         
         // Reset Mana System when the match starts
         if (ManaSystem != null)
@@ -42,6 +47,7 @@ public class GameManager : MonoBehaviour
     {
         IsMatchRunning = false;
         OnMatchEnded?.Invoke();
+        AIOpponent.FinishGame();
         Debug.Log("Match ended.");
     }
 

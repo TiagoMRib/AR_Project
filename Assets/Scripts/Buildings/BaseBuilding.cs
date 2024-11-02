@@ -14,6 +14,7 @@ public abstract class BaseBuilding : MonoBehaviour
     public string teamTag;  
     public string enemyTeamTag;
     public bool isDead = false;
+    public GameInitialization gameInitialization;
 
     [Header("Mana Reward Settings")]
     public float manaReward = 50f;
@@ -42,6 +43,7 @@ public abstract class BaseBuilding : MonoBehaviour
         
         if (currentHealth <= 0f)
         {
+            
             Die();
         }
     }
@@ -66,6 +68,11 @@ public abstract class BaseBuilding : MonoBehaviour
     {
         isDead = true;
 
+        if (buildingName != null && buildingName.ToLower().Contains("castle"))
+        {
+            //gameInitialization.StopGame();
+            Debug.Log("Castle died");
+        }
         // Check if this building belongs to the enemy team
         if (teamTag == "Team2")
         {

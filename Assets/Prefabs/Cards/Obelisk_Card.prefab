@@ -139,6 +139,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingPrefab: {fileID: 6860370109462849149}
+  manaCost: 50
+  buildDelay: 3
+  cardCanvas: {fileID: 0}
+  manaCostText: {fileID: 0}
+  statusText: {fileID: 0}
 --- !u!1001 &8171283547830611072
 PrefabInstance:
   m_ObjectHideFlags: 0

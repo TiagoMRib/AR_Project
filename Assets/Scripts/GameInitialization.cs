@@ -82,12 +82,30 @@ public class GameInitialization : MonoBehaviour
     }
 
     // Stops the game
-    private void StopGame()
+    public void StopGame()
     {
+        DestroyAllTroopsInLayer(7);
+        DestroyAllTroopsInLayer(8);
         gameStarted = false;
         UpdateUIVisibility();
         GameManager.Instance.EndMatch(); // Change later to pause?
     }
+    
+    public void DestroyAllTroopsInLayer(int layer)
+    {
+        GameObject[] allObjects = FindObjectsOfType<GameObject>();
+
+        foreach (GameObject obj in allObjects)
+        {
+            if (obj.layer == layer)
+            {
+                Destroy(obj);
+            }
+        }
+
+        Debug.Log("All troops in layer " + layer + " have been destroyed.");
+    }
+
 
     // Handles UI visibility based on card detection and game state
     private void UpdateUIVisibility()

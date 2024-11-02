@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3490101986401357341}
   m_Layer: 0
   m_Name: Obelisk
-  m_TagString: Untagged
+  m_TagString: Team2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,6 +54,7 @@ MonoBehaviour:
   teamTag: 
   enemyTeamTag: 
   isDead: 0
+  manaReward: 50
   laserBeam: {fileID: 0}
   laserDamage: 20
 --- !u!120 &3490101986401357341
