@@ -92,9 +92,11 @@ public class RoadBlockCard : MonoBehaviour
     {
         if (cardDetected && gameRunning && roadBlockPrefab != null && spawnedRoadBlock == null)
         {
+            
             Vector3 placementPosition = transform.position;
+            /*
             if (IsAboveBridge(placementPosition))
-            {
+            {*/
                 isPlacedOnBridge = true;
                 statusText.text = ""; // Clear any warning message
                 spawnedRoadBlock = Instantiate(roadBlockPrefab, placementPosition, transform.rotation);
@@ -107,12 +109,12 @@ public class RoadBlockCard : MonoBehaviour
                 navObstacle.carving = true; // Enable carving to update NavMesh dynamically
                 navObstacle.size = new Vector3(1f, 1f, 1f); // Adjust size as needed
 
-                //StartCoroutine(HealthDecay());
-            }
+                StartCoroutine(HealthDecay());
+            /*}
             else
             {
                 statusText.text = "";
-            }
+            }*/
         }
     }
 
@@ -132,27 +134,6 @@ public class RoadBlockCard : MonoBehaviour
         return false;
     }
 
-void Update()
-{
-    
-    if (spawnedRoadBlock != null && gameRunning) // isPlacedOnBridge
-    {
-        health -= healthDecayRate * Time.deltaTime;
-        if (health <= 0)
-        {
-            Debug.Log("RoadBlock Died");
-            Destroy(spawnedRoadBlock);
-            spawnedRoadBlock = null;
-        }
-        else
-        {
-            Debug.Log("RoadBlock Health: " + health);
-        }
-    }
-}
-/*
-
-
     private IEnumerator HealthDecay()
     {
         while (health > 0)
@@ -170,6 +151,6 @@ void Update()
             Destroy(spawnedRoadBlock);
             spawnedRoadBlock = null;
         }
-    }*/
+    }
 }
 
