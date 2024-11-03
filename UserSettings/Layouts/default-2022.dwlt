@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1521.6
     height: 758.4
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Inspector
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -700,9 +700,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.451193, y: -1.6706061, z: 3.571839}
+    m_Target: {x: 6.953931, y: -11.991708, z: -4.1486897}
     speed: 2
-    m_Value: {x: 1.451193, y: -1.6706061, z: 3.571839}
+    m_Value: {x: 6.953931, y: -11.991708, z: -4.1486897}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -748,13 +748,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.14566016, y: -0.85694337, z: 0.35922587, w: -0.3414416}
+    m_Target: {x: -0.23802929, y: -0.76446843, z: 0.41508836, w: -0.4333994}
     speed: 2
-    m_Value: {x: -0.14557326, y: -0.8564321, z: 0.35901153, w: -0.34123787}
+    m_Value: {x: -0.23738824, y: -0.76452816, z: 0.41512403, w: -0.4322218}
   m_Size:
-    m_Target: 5.652394
+    m_Target: 12.483191
     speed: 2
-    m_Value: 5.4089894
+    m_Value: 11.945637
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -816,9 +816,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d2dcffff
-      m_LastClickedID: -9006
-      m_ExpandedIDs: d2dcffff12e4ffffaee7ffff28f8ffff48f9ffff4cf9ffff20fbffff
+      m_SelectedIDs: d07e0000
+      m_LastClickedID: 32464
+      m_ExpandedIDs: 20fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1242,7 +1242,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 79}
     m_SelectedIDs: 0c930000
     m_LastClickedID: 37644
-    m_ExpandedIDs: 00000000de9200000c93000000ca9a3b
+    m_ExpandedIDs: 00000000e0920000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1270,7 +1270,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000de920000
+    m_ExpandedIDs: 00000000e0920000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1362,7 +1362,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -9006
+  m_LastSelectedObjectID: -1800
 --- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52

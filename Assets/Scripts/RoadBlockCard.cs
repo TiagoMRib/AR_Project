@@ -8,6 +8,8 @@ public class RoadBlockCard : MonoBehaviour
 {
     public GameObject roadBlockPrefab;
     public float health = 100f; // Initial health of the roadblock
+
+    public float manaCost = 30f;
     public float healthDecayRate = 5f; // Health decay per second
     public Canvas cardCanvas;
     public TextMeshProUGUI statusText; // UI for messages
@@ -89,16 +91,24 @@ public class RoadBlockCard : MonoBehaviour
     }
 
     private void TryPlaceRoadBlock()
+{
+    if (cardDetected && gameRunning && roadBlockPrefab != null && spawnedRoadBlock == null)
     {
-        if (cardDetected && gameRunning && roadBlockPrefab != null && spawnedRoadBlock == null)
+        // Check if the player has enough mana
+        if (GameManager.Instance.CanSpendMana(manaCost))
         {
-            
             Vector3 placementPosition = transform.position;
-            /*
-            if (IsAboveBridge(placementPosition))
-            {*/
+            
+            // Assume IsAboveBridge() is used for bridge detection (you can uncomment if working)
+            // if (IsAboveBridge(placementPosition))
+            // {
                 isPlacedOnBridge = true;
                 statusText.text = ""; // Clear any warning message
+
+                // Deduct the mana
+                GameManager.Instance.ManaSystem.SpendMana(manaCost);
+                
+                // Instantiate the roadblock
                 spawnedRoadBlock = Instantiate(roadBlockPrefab, placementPosition, transform.rotation);
                 spawnedRoadBlock.transform.SetParent(transform); // Parent to the card
                 spawnedRoadBlock.transform.localPosition = new Vector3(0, 0.1f, 0); // Adjust Y position
@@ -110,15 +120,25 @@ public class RoadBlockCard : MonoBehaviour
                 navObstacle.size = new Vector3(1f, 1f, 1f); // Adjust size as needed
 
                 StartCoroutine(HealthDecay());
-            /*}
-            else
+            // }
+            // else
+            // {
+            //     statusText.text = "Place the roadblock above a bridge";
+            // }
+        }
+        else
+        {
+            // Display a message if there is not enough mana
+            if (statusText != null)
             {
-                statusText.text = "";
-            }*/
+                statusText.text = "Not enough mana to place RoadBlock!";
+            }
+            Debug.Log("Not enough mana to place the RoadBlock.");
         }
     }
+}
 
-    private bool IsAboveBridge(Vector3 position)
+    private bool IsAboveBridge(Vector3 position) // not working
     {
         // Perform a raycast downward to check if the object is above a bridge
         RaycastHit hit;
