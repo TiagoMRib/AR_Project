@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3943256684132597135}
   m_Layer: 7
   m_Name: Shroom
-  m_TagString: Team2
+  m_TagString: Team1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,7 +54,7 @@ MonoBehaviour:
   attackCooldown: 1
   speed: 5
   teamTag: Team1
-  enemyTeamTag: 
+  enemyTeamTag: Team2
   agent: {fileID: 3943256684132597135}
   pathPoints: []
   manaReward: 20

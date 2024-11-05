@@ -15,6 +15,7 @@ public class Golem : BaseTroop
     protected override void FindTarget()
     {
         Debug.Log("Movement: Golem is finding the closest enemy.");
+        
         GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag(enemyTeamTag);
         if (enemyObjects.Length == 0)
         {
@@ -27,15 +28,20 @@ public class Golem : BaseTroop
         foreach (GameObject enemy in enemyObjects)
         {
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
+            
             Debug.Log("Golem Enemy: " + enemy.name + " is " + distance + " units away, in position: " + enemy.transform.position);
-            if (distance < closestDistance && !enemy.GetComponent<BaseBuilding>().isDead)
+            if (distance < closestDistance && enemy.tag == "PlayerBuilding")
             {
+            
                 closestDistance = distance;
                 currentTarget = enemy.transform;
+                Debug.Log(currentTarget.name + " is " + distance + " units away");
             }
+        
+            
         }
 
-        Debug.Log("Golem found the closest enemy: " + currentTarget);
+        Debug.Log("Golem found the closest enemy");
     }
 
     protected override void Update()
@@ -45,9 +51,11 @@ public class Golem : BaseTroop
         if (currentTarget != null)
         {
             float distanceToTarget = Vector3.Distance(transform.position, currentTarget.position);
+            Debug.Log(distanceToTarget + " units away");
             // Move towards the target
             if (distanceToTarget > attackRange)
             {
+                Debug.Log("Moving");
                 MoveTowardsTarget();
                 animator.SetBool("isWalking", true);
             }
@@ -60,6 +68,7 @@ public class Golem : BaseTroop
         }
         else
         {
+            Debug.Log("No target found in update.");
             // If no target, stop the walking animation
             animator.SetBool("isWalking", false);
         }
@@ -122,7 +131,7 @@ public class Golem : BaseTroop
                 }
 
                 // Deal damage
-                yield return new WaitForSeconds(2.5f);
+                yield return new WaitForSeconds(3.5f);
                 building.TakeDamage(damage);
                 Debug.Log("Golem deals " + damage + " damage to " + building.buildingName);
                 hits++;

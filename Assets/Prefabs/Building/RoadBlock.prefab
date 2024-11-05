@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7413969192100025666}
+  - component: {fileID: 7722034436331306011}
   m_Layer: 0
   m_Name: RoadBlock
   m_TagString: Untagged
@@ -32,6 +33,27 @@ Transform:
   - {fileID: 4145687635485402229}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7722034436331306011
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813620437446819515}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.78546053, y: 0.95791125, z: 0.7022252}
+  m_Center: {x: 0.019119054, y: -0.021044374, z: 0.016336918}
 --- !u!1001 &6458649766995451927
 PrefabInstance:
   m_ObjectHideFlags: 0

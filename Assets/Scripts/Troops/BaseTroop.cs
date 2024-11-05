@@ -30,7 +30,7 @@ public abstract class BaseTroop : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        enemyTeamTag = (teamTag == "Team1") ? "Team2" : "Team1";
+        
         animator = GetComponentInChildren<Animator>();
         Debug.Log("Animator found: " + animator);
         FindTarget();
@@ -79,6 +79,7 @@ public abstract class BaseTroop : MonoBehaviour
         }
         else
         {
+            Debug.Log("Movement: " + gameObject.name + " is moving towards the target.");
             agent.SetDestination(currentTarget.position);
         }
     }

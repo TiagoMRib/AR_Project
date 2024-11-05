@@ -40,7 +40,7 @@ public class RoadBlockCard : MonoBehaviour
 
         if (cardCanvas != null)
         {
-            cardCanvas.enabled = false;
+            cardCanvas.gameObject.SetActive(false);
         }
     }
 
@@ -71,7 +71,7 @@ public class RoadBlockCard : MonoBehaviour
         gameRunning = true;
         if (cardCanvas != null)
         {
-            cardCanvas.enabled = true;
+            cardCanvas.gameObject.SetActive(true);
         }
         TryPlaceRoadBlock();
     }
@@ -81,7 +81,7 @@ public class RoadBlockCard : MonoBehaviour
         gameRunning = false;
         if (cardCanvas != null)
         {
-            cardCanvas.enabled = false;
+            cardCanvas.gameObject.SetActive(false);
         }
         if (spawnedRoadBlock != null)
         {
@@ -131,7 +131,8 @@ public class RoadBlockCard : MonoBehaviour
             // Display a message if there is not enough mana
             if (statusText != null)
             {
-                statusText.text = "Not enough mana to place RoadBlock!";
+                statusText.text = $"-{manaCost} Mana";
+                statusText.color = Color.red;
             }
             Debug.Log("Not enough mana to place the RoadBlock.");
         }
@@ -173,4 +174,3 @@ public class RoadBlockCard : MonoBehaviour
         }
     }
 }
-

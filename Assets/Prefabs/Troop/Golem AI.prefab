@@ -54,10 +54,10 @@ MonoBehaviour:
   attackCooldown: 3
   speed: 1
   teamTag: Team2
-  enemyTeamTag: 
+  enemyTeamTag: Team1
   agent: {fileID: 4610309256154512616}
   pathPoints: []
-  manaReward: 10
+  manaReward: 80
 --- !u!195 &4610309256154512616
 NavMeshAgent:
   m_ObjectHideFlags: 0

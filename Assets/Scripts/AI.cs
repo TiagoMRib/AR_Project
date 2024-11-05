@@ -7,7 +7,7 @@ public class AIOpponent : MonoBehaviour
     public Transform leftBridge;           // Reference to the left bridge position
     public Transform rightBridge;          // Reference to the right bridge position
     public GameObject[] cardPrefabs;       // Array of cards the AI can play
-    public float playInterval = 5f;        // Time interval between AI plays
+    public float playInterval = 20f;        // Time interval between AI plays
     public Transform enemyCastle;          // Reference to the player's castle
 
     private int currentEnergy;
