@@ -27,9 +27,11 @@ public class Golem : BaseTroop
         foreach (GameObject enemy in enemyObjects)
         {
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
+
+            Debug.Log("Golem Enemy:" + enemy);
            
             Debug.Log("Golem Enemy: " + enemy.name + " is " + distance + " units away, in position: " + enemy.transform.position);
-            if (distance < closestDistance && !enemy.GetComponent<BaseBuilding>().isDead)
+            if (distance < closestDistance && !enemy.GetComponent<BaseBuilding>().isDead) //ERROR IN THIS LINE
             {
                 
                 closestDistance = distance;
