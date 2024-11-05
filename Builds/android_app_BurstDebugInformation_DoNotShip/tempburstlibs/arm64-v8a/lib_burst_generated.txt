@@ -28,6 +28,7 @@ Library: C:\Users\Tiago Ribeiro\Desktop\AR\AR Project\Temp\BurstOutput\tempburst
 --assembly-defines=System.Runtime.Serialization;
 --assembly-defines=System.Xml;
 --assembly-defines=System.Xml.Linq;
+--assembly-defines=Unity.AI.Navigation;
 --assembly-defines=Unity.Burst;
 --assembly-defines=Unity.Burst.Unsafe;
 --assembly-defines=Unity.InputSystem;
@@ -87,6 +88,7 @@ Library: C:\Users\Tiago Ribeiro\Desktop\AR\AR Project\Temp\BurstOutput\tempburst
 --assembly-defines=System.Runtime.Serialization;
 --assembly-defines=System.Xml;
 --assembly-defines=System.Xml.Linq;
+--assembly-defines=Unity.AI.Navigation;
 --assembly-defines=Unity.Burst;
 --assembly-defines=Unity.Burst.Unsafe;
 --assembly-defines=Unity.InputSystem;

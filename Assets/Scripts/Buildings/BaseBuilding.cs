@@ -14,7 +14,6 @@ public abstract class BaseBuilding : MonoBehaviour
     public string teamTag;  
     public string enemyTeamTag;
     public bool isDead = false;
-    public GameInitialization gameInitialization;
 
     [Header("Mana Reward Settings")]
     public float manaReward = 50f;

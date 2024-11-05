@@ -53,12 +53,12 @@ MonoBehaviour:
   damage: 10
   attackRange: 1
   attackCooldown: 1
-  speed: 5
+  speed: 3
   teamTag: Team1
   enemyTeamTag: 
   agent: {fileID: 0}
   pathPoints: []
-  manaReward: 10
+  manaReward: 15
 --- !u!114 &4630221401953836167
 MonoBehaviour:
   m_ObjectHideFlags: 0
