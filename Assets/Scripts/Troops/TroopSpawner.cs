@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using Vuforia;
 using System.Collections;
 using TMPro;
@@ -49,8 +48,21 @@ public class TroopSpawner : MonoBehaviour
     private void OnTargetStatusChanged(ObserverBehaviour behaviour, TargetStatus targetStatus)
     {
         // Check if the card is currently being tracked
-        cardDetected = (targetStatus.Status == Status.TRACKED || targetStatus.Status == Status.EXTENDED_TRACKED);
-        summonCanvas.gameObject.SetActive(cardDetected); // Show or hide the UI based on detection
+        cardDetected = (targetStatus.Status == Status.TRACKED);
+
+        // Show or hide the UI based on detection
+        summonCanvas.gameObject.SetActive(cardDetected);
+
+        // Disable the spawner if the card is no longer detected
+        if (!cardDetected)
+        {
+            // Instead of destroying, deactivate this GameObject
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.SetActive(true);
+        }
     }
 
     void Update()

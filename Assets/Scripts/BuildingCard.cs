@@ -18,45 +18,33 @@ public class BuildingCard : MonoBehaviour
     private ObserverBehaviour observerBehaviour;
     private bool cardDetected = false;
     private bool gameRunning = false;
-    private GameObject spawnedBuilding = null; // To keep track of the spawned building
-    private bool isBuilding = false; // Flag to indicate if a building is under construction
+    private GameObject spawnedBuilding = null; // Track the spawned building
+    private bool isBuilding = false; // Check if a building is under construction
 
     void Start()
     {
+        // Set up Vuforia observer
         observerBehaviour = GetComponent<ObserverBehaviour>();
-
         if (observerBehaviour)
         {
             observerBehaviour.OnTargetStatusChanged += OnTargetStatusChanged;
         }
 
+        // Subscribe to game state events
         GameManager.Instance.OnMatchStarted += OnMatchStarted;
         GameManager.Instance.OnMatchEnded += OnMatchEnded;
 
-        // Initialize UI elements
-        if (manaCostText != null)
-        {
-            manaCostText.text = "Cost: " + manaCost;
-        }
-        if (statusText != null)
-        {
-            statusText.text = ""; // Clear the status text initially
-        }
-
-        // Ensure the UI is hidden at the start
-        if (cardCanvas != null)
-        {
-            cardCanvas.enabled = false;
-        }
+        // Initialize UI
+        InitializeUI();
     }
 
     void OnDestroy()
     {
+        // Unsubscribe from events to prevent memory leaks
         if (observerBehaviour)
         {
             observerBehaviour.OnTargetStatusChanged -= OnTargetStatusChanged;
         }
-
         if (GameManager.Instance != null)
         {
             GameManager.Instance.OnMatchStarted -= OnMatchStarted;
@@ -64,8 +52,22 @@ public class BuildingCard : MonoBehaviour
         }
     }
 
+    private void InitializeUI()
+    {
+        UpdateManaCostTextColor();
+        if (statusText != null)
+        {
+            statusText.text = ""; // Clear the status text
+        }
+        if (cardCanvas != null)
+        {
+            cardCanvas.enabled = false; // Hide the UI initially
+        }
+    }
+
     private void OnTargetStatusChanged(ObserverBehaviour behaviour, TargetStatus targetStatus)
     {
+        // Update card detection status
         cardDetected = (targetStatus.Status == Status.TRACKED || targetStatus.Status == Status.EXTENDED_TRACKED);
         TrySpawnBuilding();
     }
@@ -73,83 +75,98 @@ public class BuildingCard : MonoBehaviour
     private void OnMatchStarted()
     {
         gameRunning = true;
-
-        // Show the UI when the match starts
         if (cardCanvas != null)
         {
-            cardCanvas.enabled = true;
+            cardCanvas.enabled = true; // Show UI when the game starts
         }
-
         TrySpawnBuilding();
     }
 
     private void OnMatchEnded()
     {
         gameRunning = false;
-
-        // Hide the UI when the match ends
         if (cardCanvas != null)
         {
-            cardCanvas.enabled = false;
+            cardCanvas.enabled = false; // Hide UI when the game ends
         }
-
-        if (spawnedBuilding != null)
-        {
-            Destroy(spawnedBuilding);
-            spawnedBuilding = null;
-        }
+        DestroyCurrentBuilding();
     }
 
     private void TrySpawnBuilding()
     {
-        if (cardDetected && gameRunning && buildingPrefab != null && spawnedBuilding == null && !isBuilding)
+        UpdateManaCostTextColor();
+
+        if (cardDetected && gameRunning && !isBuilding && spawnedBuilding == null)
         {
-            if (GameManager.Instance.CanSpendMana(manaCost))
+            if (GameManager.Instance.ManaSystem.currentMana >= manaCost)
             {
-                StartCoroutine(BuildBuilding()); // Start the building process
+                StartCoroutine(BuildBuilding());
             }
             else
             {
-                // Display insufficient mana message
-                if (statusText != null)
-                {
-                    statusText.text = "Not enough mana!";
-                }
+                ShowStatusMessage(""); // Clear status message
             }
         }
         else if (!cardDetected || !gameRunning)
         {
-            if (spawnedBuilding != null)
-            {
-                Destroy(spawnedBuilding);
-                spawnedBuilding = null;
-            }
+            DestroyCurrentBuilding();
         }
     }
 
     private IEnumerator BuildBuilding()
     {
         isBuilding = true;
-        GameManager.Instance.ManaSystem.SpendMana(manaCost); // Spend the mana
+        GameManager.Instance.ManaSystem.SpendMana(manaCost); // Deduct mana cost
 
-        if (statusText != null)
-        {
-            statusText.text = "Building..."; // Show the building status
-        }
+        ShowStatusMessage("Building..."); // Show building status
+        manaCostText.gameObject.SetActive(false); // Hide mana cost text during construction
 
         yield return new WaitForSeconds(buildDelay); // Wait for the build delay
 
-        // Instantiate and set up the building
+        // Instantiate and activate the building
         spawnedBuilding = Instantiate(buildingPrefab, transform.position, transform.rotation);
-        spawnedBuilding.transform.SetParent(transform); // Parent the building to the card
-        spawnedBuilding.transform.localPosition = new Vector3(0, 0.1f, 0); // Adjust Y position if needed
+        spawnedBuilding.transform.SetParent(transform); // Attach to the card
+        spawnedBuilding.transform.localPosition = new Vector3(0, 0.1f, 0); // Adjust position
         spawnedBuilding.SetActive(true);
 
+        ShowStatusMessage(""); // Clear status text
+        manaCostText.gameObject.SetActive(true); // Show mana cost text after building
+        isBuilding = false;
+    }
+
+    private void DestroyCurrentBuilding()
+    {
+        if (spawnedBuilding != null)
+        {
+            Destroy(spawnedBuilding);
+            spawnedBuilding = null;
+        }
+        isBuilding = false;
+        manaCostText.gameObject.SetActive(true); // Show mana cost text when no building is present
+    }
+
+    private void UpdateManaCostTextColor()
+    {
+        if (manaCostText != null)
+        {
+            if (GameManager.Instance.ManaSystem.currentMana >= manaCost)
+            {
+                manaCostText.color = Color.blue; // Sufficient mana
+            }
+            else
+            {
+                manaCostText.text = $"-{manaCost} Mana";
+                manaCostText.color = Color.red; // Insufficient mana
+            }
+        }
+    }
+
+    private void ShowStatusMessage(string message)
+    {
         if (statusText != null)
         {
-            statusText.text = ""; // Clear the status text
+            statusText.text = message;
+            statusText.gameObject.SetActive(!string.IsNullOrEmpty(message)); // Only show status text if there's a message
         }
-
-        isBuilding = false;
     }
 }

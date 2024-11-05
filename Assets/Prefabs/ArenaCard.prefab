@@ -385,7 +385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mObserverBehaviour: {fileID: 1106441107785903237}
   mHiddenRoot: {fileID: 0}
-  mTargetName: challenge_card
+  mTargetName: challenge
   mDatasetName: Vuforia/AR_Project.xml
   mCastedBehaviour: {fileID: 1106441107785903237}
   mMeshFilter: {fileID: 0}
@@ -593,6 +593,14 @@ PrefabInstance:
     - target: {fileID: 6476558758615550808, guid: cdae917124566cb44bdf8d9ff8279b96, type: 3}
       propertyPath: teamTag
       value: Team1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7296916388263376726, guid: cdae917124566cb44bdf8d9ff8279b96, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014538261244409279, guid: cdae917124566cb44bdf8d9ff8279b96, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8329817315651813496, guid: cdae917124566cb44bdf8d9ff8279b96, type: 3}
       propertyPath: m_TagString
