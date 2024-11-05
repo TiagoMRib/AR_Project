@@ -71,6 +71,7 @@ public abstract class BaseBuilding : MonoBehaviour
         {
             //gameInitialization.StopGame();
             Debug.Log("Castle died");
+            GameManager.Instance?.gameInitialization.StopGame();
         }
         // Check if this building belongs to the enemy team
         if (teamTag == "Team2")

@@ -4,6 +4,8 @@ using System;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    
+    public GameInitialization gameInitialization;
     public bool IsMatchRunning { get; private set; } = false;
 
     public ManaSystem ManaSystem;
@@ -49,6 +51,7 @@ public class GameManager : MonoBehaviour
         OnMatchEnded?.Invoke();
         AIOpponent.FinishGame();
         Debug.Log("Match ended.");
+        
     }
 
     public bool CanSpendMana(float amount)

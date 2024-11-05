@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Vuforia;
 
 public class GameInitialization : MonoBehaviour
@@ -89,6 +90,7 @@ public class GameInitialization : MonoBehaviour
         gameStarted = false;
         UpdateUIVisibility();
         GameManager.Instance.EndMatch(); // Change later to pause?
+        SceneManager.LoadScene("Main Menu");
     }
     
     public void DestroyAllTroopsInLayer(int layer)
