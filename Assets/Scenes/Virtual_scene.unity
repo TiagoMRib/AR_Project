@@ -157,83 +157,7 @@ MonoBehaviour:
   cardCanvas: {fileID: 253856832}
   manaCostText: {fileID: 264044363}
   statusText: {fileID: 1282879483}
---- !u!114 &39973655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39973629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 39973631}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: graveyard
-  mDatasetName: Vuforia/AR_Project.xml
-  mCastedBehaviour: {fileID: 39973631}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
---- !u!114 &39973656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39973629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 39973631}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: graveyard
-  mDatasetName: Vuforia/AR_Project.xml
-  mCastedBehaviour: {fileID: 39973631}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
---- !u!114 &39973659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39973629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 39973631}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: graveyard
-  mDatasetName: Vuforia/AR_Project.xml
-  mCastedBehaviour: {fileID: 39973631}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
---- !u!114 &39973660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39973629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 39973631}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: graveyard
-  mDatasetName: Vuforia/AR_Project.xml
-  mCastedBehaviour: {fileID: 39973631}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
---- !u!114 &39973663
+--- !u!114 &39973669
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -341,7 +265,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5244336926689127112, guid: 71478d7cf78410b499a2faaeeaf78ff3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1593618506}
+      addedObject: {fileID: 1593618517}
   m_SourcePrefab: {fileID: 100100000, guid: 71478d7cf78410b499a2faaeeaf78ff3, type: 3}
 --- !u!1 &140187164
 GameObject:
@@ -770,7 +694,7 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: 8a9a760f95896c34689febc965510927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &931955932
+--- !u!114 &931955938
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -916,45 +840,7 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: 8a9a760f95896c34689febc965510927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1393671246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393671216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 1393671218}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: shroom
-  mDatasetName: Vuforia/AR_Project.xml
-  mCastedBehaviour: {fileID: 1393671218}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
---- !u!114 &1393671250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393671216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 1393671218}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: shroom
-  mDatasetName: Vuforia/AR_Project.xml
-  mCastedBehaviour: {fileID: 1393671218}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
---- !u!114 &1393671254
+--- !u!114 &1393671262
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1057,83 +943,7 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: 8a9a760f95896c34689febc965510927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1516961448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516961433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 1516961436}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: bat_qr
-  mDatasetName: Vuforia/AR_Project.xml
-  mCastedBehaviour: {fileID: 1516961436}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
---- !u!114 &1516961452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516961433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 1516961436}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: bat_qr
-  mDatasetName: Vuforia/AR_Project.xml
-  mCastedBehaviour: {fileID: 1516961436}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
---- !u!114 &1516961453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516961433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 1516961436}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: bat_qr
-  mDatasetName: Vuforia/AR_Project.xml
-  mCastedBehaviour: {fileID: 1516961436}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
---- !u!114 &1516961457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516961433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 1516961436}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: bat_qr
-  mDatasetName: Vuforia/AR_Project.xml
-  mCastedBehaviour: {fileID: 1516961436}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
---- !u!114 &1516961461
+--- !u!114 &1516961469
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1168,7 +978,7 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: 8a9a760f95896c34689febc965510927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1593618506
+--- !u!114 &1593618517
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1672,64 +1482,7 @@ MonoBehaviour:
   cardCanvas: {fileID: 1726581496}
   manaCostText: {fileID: 356849330}
   statusText: {fileID: 1064988694}
---- !u!114 &1962593571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1962593529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 1962593531}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: obelisk
-  mDatasetName: Vuforia/AR_Project.xml
-  mCastedBehaviour: {fileID: 1962593531}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
---- !u!114 &1962593574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1962593529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 1962593531}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: obelisk
-  mDatasetName: Vuforia/AR_Project.xml
-  mCastedBehaviour: {fileID: 1962593531}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
---- !u!114 &1962593577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1962593529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 1962593531}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: obelisk
-  mDatasetName: Vuforia/AR_Project.xml
-  mCastedBehaviour: {fileID: 1962593531}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
---- !u!114 &1962593580
+--- !u!114 &1962593586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1769,102 +1522,7 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: 8a9a760f95896c34689febc965510927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2033143080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2033143050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 2033143052}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: mudgolem
-  mDatasetName: Vuforia/AR_Project.xml
-  mCastedBehaviour: {fileID: 2033143052}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
---- !u!114 &2033143081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2033143050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 2033143052}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: mudgolem
-  mDatasetName: Vuforia/AR_Project.xml
-  mCastedBehaviour: {fileID: 2033143052}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
---- !u!114 &2033143085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2033143050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 2033143052}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: mudgolem
-  mDatasetName: Vuforia/AR_Project.xml
-  mCastedBehaviour: {fileID: 2033143052}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
---- !u!114 &2033143086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2033143050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 2033143052}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: mudgolem
-  mDatasetName: Vuforia/AR_Project.xml
-  mCastedBehaviour: {fileID: 2033143052}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
---- !u!114 &2033143090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2033143050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 2033143052}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: mudgolem
-  mDatasetName: Vuforia/AR_Project.xml
-  mCastedBehaviour: {fileID: 2033143052}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
---- !u!114 &2033143094
+--- !u!114 &2033143102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1891,6 +1549,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 69586406897714257, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 680884778523142457, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
       propertyPath: OnTargetLost.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -1926,6 +1588,10 @@ PrefabInstance:
     - target: {fileID: 2763741268351764310, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784418109299316941, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
+      propertyPath: m_Name
+      value: ManaCost
       objectReference: {fileID: 0}
     - target: {fileID: 5436060025840014571, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
       propertyPath: m_LocalScale.x
@@ -2050,19 +1716,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2763741268351764310, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1516961448}
-    - targetCorrespondingSourceObject: {fileID: 2763741268351764310, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1516961452}
-    - targetCorrespondingSourceObject: {fileID: 2763741268351764310, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1516961453}
-    - targetCorrespondingSourceObject: {fileID: 2763741268351764310, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1516961457}
-    - targetCorrespondingSourceObject: {fileID: 2763741268351764310, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1516961461}
+      addedObject: {fileID: 1516961469}
   m_SourcePrefab: {fileID: 100100000, guid: d6f1cdc110616124589d22664e1d5ea4, type: 3}
 --- !u!1001 &4106622094110207527
 PrefabInstance:
@@ -2155,7 +1809,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4629822616779320166, guid: 85ea1436ad0ca4942b78b7a6a1933b6a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 931955932}
+      addedObject: {fileID: 931955938}
   m_SourcePrefab: {fileID: 100100000, guid: 85ea1436ad0ca4942b78b7a6a1933b6a, type: 3}
 --- !u!4 &4106622094110207528 stripped
 Transform:
@@ -2301,7 +1955,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8820601603805094439, guid: afa40e424618bcd44b043e130568af6f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2790709433579458440, guid: afa40e424618bcd44b043e130568af6f, type: 3}
@@ -2314,16 +1968,7 @@ PrefabInstance:
       addedObject: {fileID: 1962593535}
     - targetCorrespondingSourceObject: {fileID: 8713621226839321285, guid: afa40e424618bcd44b043e130568af6f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1962593571}
-    - targetCorrespondingSourceObject: {fileID: 8713621226839321285, guid: afa40e424618bcd44b043e130568af6f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1962593574}
-    - targetCorrespondingSourceObject: {fileID: 8713621226839321285, guid: afa40e424618bcd44b043e130568af6f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1962593577}
-    - targetCorrespondingSourceObject: {fileID: 8713621226839321285, guid: afa40e424618bcd44b043e130568af6f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1962593580}
+      addedObject: {fileID: 1962593586}
   m_SourcePrefab: {fileID: 100100000, guid: afa40e424618bcd44b043e130568af6f, type: 3}
 --- !u!120 &4695542792604707336 stripped
 LineRenderer:
@@ -2338,6 +1983,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 193539055190894981, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 500074309142532485, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
+      propertyPath: m_Name
+      value: ManaCost
+      objectReference: {fileID: 0}
     - target: {fileID: 1101734840357785927, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
       propertyPath: agent
       value: 
@@ -2501,22 +2154,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7614212339931074166, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2033143080}
-    - targetCorrespondingSourceObject: {fileID: 7614212339931074166, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2033143081}
-    - targetCorrespondingSourceObject: {fileID: 7614212339931074166, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2033143085}
-    - targetCorrespondingSourceObject: {fileID: 7614212339931074166, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2033143086}
-    - targetCorrespondingSourceObject: {fileID: 7614212339931074166, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2033143090}
-    - targetCorrespondingSourceObject: {fileID: 7614212339931074166, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2033143094}
+      addedObject: {fileID: 2033143102}
   m_SourcePrefab: {fileID: 100100000, guid: 15f383a5a069cc14799ad3d08b6de6bf, type: 3}
 --- !u!1001 &5389181455950728870
 PrefabInstance:
@@ -2625,6 +2263,10 @@ PrefabInstance:
     - target: {fileID: 1053727336167695899, guid: 370862bf81fe07446903da282208d2c3, type: 3}
       propertyPath: attackCooldown
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2431412471770753549, guid: 370862bf81fe07446903da282208d2c3, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3576445643300379441, guid: 370862bf81fe07446903da282208d2c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2738,13 +2380,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 436828417733466384, guid: 370862bf81fe07446903da282208d2c3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1393671246}
-    - targetCorrespondingSourceObject: {fileID: 436828417733466384, guid: 370862bf81fe07446903da282208d2c3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1393671250}
-    - targetCorrespondingSourceObject: {fileID: 436828417733466384, guid: 370862bf81fe07446903da282208d2c3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1393671254}
+      addedObject: {fileID: 1393671262}
   m_SourcePrefab: {fileID: 100100000, guid: 370862bf81fe07446903da282208d2c3, type: 3}
 --- !u!1001 &6762659894423063036
 PrefabInstance:
@@ -2818,6 +2454,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6852012409508118319, guid: 21836df868523f64291cd1fe1e364483, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7011622039719818958, guid: 21836df868523f64291cd1fe1e364483, type: 3}
       propertyPath: mHiddenRoot
       value: 
@@ -2853,19 +2493,7 @@ PrefabInstance:
       addedObject: {fileID: 39973633}
     - targetCorrespondingSourceObject: {fileID: 1570733656311868484, guid: 21836df868523f64291cd1fe1e364483, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 39973655}
-    - targetCorrespondingSourceObject: {fileID: 1570733656311868484, guid: 21836df868523f64291cd1fe1e364483, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 39973656}
-    - targetCorrespondingSourceObject: {fileID: 1570733656311868484, guid: 21836df868523f64291cd1fe1e364483, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 39973659}
-    - targetCorrespondingSourceObject: {fileID: 1570733656311868484, guid: 21836df868523f64291cd1fe1e364483, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 39973660}
-    - targetCorrespondingSourceObject: {fileID: 1570733656311868484, guid: 21836df868523f64291cd1fe1e364483, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 39973663}
+      addedObject: {fileID: 39973669}
   m_SourcePrefab: {fileID: 100100000, guid: 21836df868523f64291cd1fe1e364483, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -2876,10 +2504,10 @@ SceneRoots:
   - {fileID: 4106622094110207527}
   - {fileID: 1777663373}
   - {fileID: 1443613793}
-  - {fileID: 6762659894423063036}
-  - {fileID: 3472793680505081768}
   - {fileID: 44530471}
+  - {fileID: 6762659894423063036}
+  - {fileID: 4695542792604707335}
+  - {fileID: 3472793680505081768}
   - {fileID: 4918831924212152825}
   - {fileID: 5389181455950728870}
-  - {fileID: 4695542792604707335}
   - {fileID: 513783441}

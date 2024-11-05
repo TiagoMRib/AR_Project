@@ -57,7 +57,7 @@ MonoBehaviour:
   enemyTeamTag: 
   agent: {fileID: 3943256684132597135}
   pathPoints: []
-  manaReward: 10
+  manaReward: 20
   projectilePrefab: {fileID: 90812020871083512, guid: 9a0556a429b06db48a77c0f54c9ffbc2, type: 3}
   projectileSpeed: 10
 --- !u!195 &3943256684132597135
