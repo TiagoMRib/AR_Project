@@ -49,9 +49,9 @@ public class Mushroom : BaseTroop
     {
         if (currentTarget != null)
         {
-            Debug.Log("Mushroom has target: " + currentTarget);
+            //Debug.Log("Mushroom has target: " + currentTarget);
             float distanceToTarget = Vector3.Distance(transform.position, currentTarget.position);
-            Debug.Log("Distance to target: " + distanceToTarget);
+            //Debug.Log("Distance to target: " + distanceToTarget);
             if (distanceToTarget <= attackRange)
             {
                 animator.SetBool("isWalking",false);
@@ -78,7 +78,7 @@ public class Mushroom : BaseTroop
             FindTarget();
         }
 
-        Debug.Log("Mushroom walking: " + animator.GetBool("isWalking"));
+        //Debug.Log("Mushroom walking: " + animator.GetBool("isWalking"));
             
         
     }

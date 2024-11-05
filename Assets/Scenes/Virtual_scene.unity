@@ -1339,6 +1339,8 @@ MonoBehaviour:
   rightBridge: {fileID: 4106622094110207528}
   cardPrefabs:
   - {fileID: 8083784037439107555, guid: c35efd99376998149968a36872993037, type: 3}
+  - {fileID: 2970995484512924317, guid: 58a0bfece6a3bf040aa67ddeffe027d0, type: 3}
+  - {fileID: 4160198168319932977, guid: fd3df6e72009c5f4b8331ceffef343ff, type: 3}
   playInterval: 7
   enemyCastle: {fileID: 335966684}
 --- !u!1 &1814885988

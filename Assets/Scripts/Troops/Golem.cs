@@ -64,6 +64,7 @@ public class Golem : BaseTroop
         {
             // If no target, stop the walking animation
             Debug.Log("No target in update golem");
+            FindTarget();
             animator.SetBool("isWalking", false);
         }
     }

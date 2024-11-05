@@ -160,7 +160,7 @@ public class RoadBlockCard : MonoBehaviour
         while (health > 0)
         {
             health -= healthDecayRate * Time.deltaTime;
-            Debug.Log("RoadBlock Health: " + health);
+            //Debug.Log("RoadBlock Health: " + health);
             yield return null;
         }
 

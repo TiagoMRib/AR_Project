@@ -12,7 +12,6 @@ public class MainCastle : BaseBuilding
     protected override void Start()
     {
         base.Start();
-        buildingName = "Main Castle";
         maxHealth = 500f;  
         isDefensiveBuilding = true;  
         UpdateModel(); 
@@ -36,7 +35,7 @@ public class MainCastle : BaseBuilding
     {
         base.Die();
         // Trigger the game-over condition (see later)
-        Debug.Log("Game Over! Main Castle destroyed.");
+        Debug.Log("Game Over! Castle destroyed.");
     }
 
     private void UpdateModel()

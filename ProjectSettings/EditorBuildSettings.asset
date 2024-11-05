@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: a344ab86e9d5f434fb7a86c523fb10d6
+  - enabled: 1
+    path: Assets/Scenes/Defeat.unity
+    guid: 90bae0e13d0bc4c45bce652ca479a576
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: d9cb46aa9a74a40438be0e40432bf2b4
   m_configObjects:
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 2b5f5bf9571912c42b3e14c814a519a6, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 7d48655ddb4027c459546b227fba20c5, type: 2}

@@ -59,7 +59,7 @@ public class GameInitialization : MonoBehaviour
         {
             // The Image Target is no longer visible
             cardDetected = false;
-            StopGame();
+            StopGame("Draw");
         }
 
         UpdateUIVisibility();
@@ -83,14 +83,30 @@ public class GameInitialization : MonoBehaviour
     }
 
     // Stops the game
-    public void StopGame()
+    public void StopGame(string winner)
     {
         DestroyAllTroopsInLayer(7);
         DestroyAllTroopsInLayer(8);
         gameStarted = false;
         UpdateUIVisibility();
         GameManager.Instance.EndMatch(); // Change later to pause?
-        SceneManager.LoadScene("Main Menu");
+        if (winner == "Team1")
+        {
+            Debug.Log("You Win!");
+            SceneManager.LoadScene("Win");
+        }
+
+        if (winner == "Team2")
+        {
+            Debug.Log("You Lose!");
+            SceneManager.LoadScene("Defeat");
+        }
+
+        if (winner == "Draw")
+        {
+            return;
+        }
+        
     }
     
     public void DestroyAllTroopsInLayer(int layer)

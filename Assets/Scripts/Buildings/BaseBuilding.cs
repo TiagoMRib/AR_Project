@@ -70,8 +70,19 @@ public abstract class BaseBuilding : MonoBehaviour
         if (buildingName != null && buildingName.ToLower().Contains("castle"))
         {
             //gameInitialization.StopGame();
-            Debug.Log("Castle died");
-            GameManager.Instance?.gameInitialization.StopGame();
+            Debug.Log("Castle destroyed.");
+            Debug.Log("name:"+buildingName);
+            if (buildingName == "Main Castle")
+            {
+                Debug.Log("Enemy building destroyed.");
+                GameManager.Instance?.gameInitialization.StopGame("Team1");
+            }
+            if (buildingName == "Player Castle")
+            {
+                Debug.Log("Player destroyed.");
+                GameManager.Instance?.gameInitialization.StopGame("Team2");
+            }
+            
         }
         // Check if this building belongs to the enemy team
         if (teamTag == "Team2")
