@@ -8,10 +8,10 @@ public class ObeliskRangeIndicator : MonoBehaviour
     private LineRenderer lineRenderer;
     public Vector3 offset = Vector3.zero; // Offset for the center of the circle
     private Obelisk obelisk;
-  
+
     void Start()
     {
-        obelisk = GetInactiveChild<Obelisk>() ;
+        obelisk = GetInactiveChild<Obelisk>();
 
         GameManager.Instance.OnMatchStarted += OnMatchStarted;
         if (obelisk != null)
@@ -21,16 +21,13 @@ public class ObeliskRangeIndicator : MonoBehaviour
         else
         {
             Debug.Log("ObeliskRangeIndicator: Obelisk not found");
-
         }
-        
-        
+
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.positionCount = segments + 1;
-        lineRenderer.startWidth = 0.05f; 
+        lineRenderer.startWidth = 0.05f;
         lineRenderer.endWidth = 0.05f;
         lineRenderer.enabled = false;
-        
     }
 
     private void OnMatchStarted()
@@ -45,7 +42,6 @@ public class ObeliskRangeIndicator : MonoBehaviour
         {
             Debug.Log("Activate range indicator");
             lineRenderer.enabled = true;
-            
         }
     }
 
@@ -58,22 +54,30 @@ public class ObeliskRangeIndicator : MonoBehaviour
         }
     }
 
-    
+    void Update()
+    {
+        // Continuously update the range circle to follow the obelisk
+        if (obelisk != null && lineRenderer.enabled)
+        {
+            DrawRangeCircle();
+        }
+    }
 
     void DrawRangeCircle()
     {
-        Vector3 center = transform.position;
+        // Set center position based on the obelisk's current position with offset
+        Vector3 center = obelisk.transform.position + offset;
         float angle = 0f;
         for (int i = 0; i <= segments; i++)
         {
-            float x = Mathf.Sin(Mathf.Deg2Rad * angle) * (range) + center.x;
-            float z = Mathf.Cos(Mathf.Deg2Rad * angle) * (range) + center.z;
+            float x = Mathf.Sin(Mathf.Deg2Rad * angle) * range + center.x;
+            float z = Mathf.Cos(Mathf.Deg2Rad * angle) * range + center.z;
 
             lineRenderer.SetPosition(i, new Vector3(x, center.y, z));
             angle += 360f / segments;
         }
     }
-    
+
     private T GetInactiveChild<T>() where T : Component
     {
         foreach (Transform child in transform)
@@ -88,8 +92,4 @@ public class ObeliskRangeIndicator : MonoBehaviour
         }
         return null;
     }
-
-    
-
-    
 }
