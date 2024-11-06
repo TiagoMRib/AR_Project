@@ -53,6 +53,7 @@ public class Golem : BaseTroop
             if (distanceToTarget > attackRange)
             {
                 MoveTowardsTarget();
+                FindTarget();
                 animator.SetBool("isWalking", true);
             }
             else if (!isAttacking)
