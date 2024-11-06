@@ -100,7 +100,7 @@ public class BuildingCard : MonoBehaviour
         {
             if (GameManager.Instance.ManaSystem.currentMana >= manaCost)
             {
-                StartCoroutine(BuildBuilding());
+                BuildBuilding();
             }
             else
             {
@@ -113,7 +113,7 @@ public class BuildingCard : MonoBehaviour
         }
     }
 
-    private IEnumerator BuildBuilding()
+    private void BuildBuilding()
     {
         isBuilding = true;
         GameManager.Instance.ManaSystem.SpendMana(manaCost); // Deduct mana cost
@@ -121,7 +121,6 @@ public class BuildingCard : MonoBehaviour
         ShowStatusMessage("Building..."); // Show building status
         manaCostText.gameObject.SetActive(false); // Hide mana cost text during construction
 
-        yield return new WaitForSeconds(buildDelay); // Wait for the build delay
 
         // Instantiate and activate the building
         spawnedBuilding = Instantiate(buildingPrefab, transform.position, transform.rotation);

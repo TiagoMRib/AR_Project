@@ -9,6 +9,8 @@ public class Obelisk : BaseBuilding
 
     private Transform currentTarget; // The current target being attacked by the laser
 
+   
+    
     /*
     [Header("Attack Range Visualization")]
     public GameObject attackRangePrefab; // Reference to the prefab for the attack range visualization
@@ -23,16 +25,7 @@ public class Obelisk : BaseBuilding
         {
             laserBeam.enabled = false; // Initially hide the laser beam
         }
-        /*
-
-        if (attackRangePrefab != null)
-        {
-            attackRangeIndicator = Instantiate(attackRangePrefab, transform.position, Quaternion.identity);
-            attackRangeIndicator.transform.localScale = new Vector3(attackRange * 2, 1, attackRange * 2);
-            attackRangeIndicator.transform.position = new Vector3(transform.position.x, 0.01f, transform.position.z); // Slightly above ground
-            attackRangeIndicator.SetActive(true);
-        }
-        */
+        
 
         FindTarget();
     }
@@ -43,6 +36,9 @@ public class Obelisk : BaseBuilding
 
         if (!isDead)
         {
+          
+            SendMessageUpwards("ActivateRangeIndicator", SendMessageOptions.DontRequireReceiver);
+            
             if (currentTarget == null) FindTarget();
             if (currentTarget != null)
             {
@@ -54,13 +50,7 @@ public class Obelisk : BaseBuilding
                 DisableLaser();
             }
         }
-        /*
-
-        if (attackRangeIndicator != null)
-        {
-            attackRangeIndicator.transform.position = new Vector3(transform.position.x, 0.01f, transform.position.z);
-        }
-        */
+        
     }
 
     // Finds the closest enemy within range
@@ -119,6 +109,7 @@ public class Obelisk : BaseBuilding
     {
         base.Die();
         DisableLaser(); // Disable the laser beam when the obelisk is destroyed
+        SendMessageUpwards("DeactivateRangeIndicator", SendMessageOptions.DontRequireReceiver);
         /*
         if (attackRangeIndicator != null)
         {
@@ -126,5 +117,7 @@ public class Obelisk : BaseBuilding
         }*/
         Debug.Log("Obelisk has been destroyed.");
     }
+    
+    
 }
 
