@@ -59,7 +59,6 @@ public class GameInitialization : MonoBehaviour
         {
             // The Image Target is no longer visible
             cardDetected = false;
-            StopGame("Draw");
         }
 
         UpdateUIVisibility();
@@ -82,33 +81,33 @@ public class GameInitialization : MonoBehaviour
         GameManager.Instance.StartMatch(); // Start the game logic
     }
 
-    // Stops the game
+    // Stops the game and handles end-game behavior
     public void StopGame(string winner)
     {
         DestroyAllTroopsInLayer(7);
         DestroyAllTroopsInLayer(8);
         gameStarted = false;
         UpdateUIVisibility();
-        GameManager.Instance.EndMatch(); // Change later to pause?
+        GameManager.Instance.EndMatch();
+
         if (winner == "Team1")
         {
             Debug.Log("You Win!");
             SceneManager.LoadScene("Win");
         }
-
-        if (winner == "Team2")
+        else if (winner == "Team2")
         {
             Debug.Log("You Lose!");
             SceneManager.LoadScene("Defeat");
         }
-
-        if (winner == "Draw")
+        else if (winner == "Draw")
         {
+            // Do nothing; game is simply paused or awaiting a decision
             return;
         }
-        
     }
-    
+
+    // Destroys all troops in a specified layer
     public void DestroyAllTroopsInLayer(int layer)
     {
         GameObject[] allObjects = FindObjectsOfType<GameObject>();
@@ -124,11 +123,10 @@ public class GameInitialization : MonoBehaviour
         Debug.Log("All troops in layer " + layer + " have been destroyed.");
     }
 
-
     // Handles UI visibility based on card detection and game state
     private void UpdateUIVisibility()
     {
-        if (arenaPrefab) arenaPrefab.SetActive(cardDetected);
+        if (arenaPrefab) arenaPrefab.SetActive(true); // Keep the arena active
         if (startGameCanvas) startGameCanvas.gameObject.SetActive(!gameStarted && cardDetected);
     }
 
