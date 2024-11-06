@@ -18,6 +18,8 @@ public class TroopSpawner : MonoBehaviour
     private bool isCooldownActive = false;
     private TextMeshProUGUI manaCostText; // UI text for mana cost display
 
+    private bool canSpawnTroops = false; // Flag to control spawning
+
     void Start()
     {
         // Get the Vuforia ObserverBehaviour component
@@ -53,28 +55,27 @@ public class TroopSpawner : MonoBehaviour
         // Show or hide the UI based on detection
         summonCanvas.gameObject.SetActive(cardDetected);
 
-        // Disable the spawner if the card is no longer detected
-        if (!cardDetected)
+        // Control troop spawning based on the card's visibility
+        if (cardDetected)
         {
-            // Instead of destroying, deactivate this GameObject
-            gameObject.SetActive(false); //
+            canSpawnTroops = true; // Allow troop spawning
         }
         else
         {
-            gameObject.SetActive(true);
+            canSpawnTroops = false; // Disable troop spawning
         }
     }
 
     void Update()
     {
-        if (cardDetected && GameManager.Instance.IsMatchRunning && !isCooldownActive)
+        if (canSpawnTroops && GameManager.Instance.IsMatchRunning && !isCooldownActive)
         {
             if (GameManager.Instance.ManaSystem.currentMana >= troopManaCost)
             {
                 SummonTroop();
             }
         }
-        
+
         // Continuously update the mana cost display
         UpdateManaCostDisplay();
     }
