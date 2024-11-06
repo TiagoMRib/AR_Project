@@ -32,15 +32,16 @@ public class ObeliskRangeIndicator : MonoBehaviour
 
     private void OnMatchStarted()
     {
-        DrawRangeCircle();
+        DrawRangeCircle(obelisk.transform.position);
         lineRenderer.enabled = false;
     }
 
-    public void ActivateRangeIndicator()
+    public void ActivateRangeIndicator(Vector3 center)
     {
         if (lineRenderer != null)
         {
             Debug.Log("Activate range indicator");
+            DrawRangeCircle(center);
             lineRenderer.enabled = true;
         }
     }
@@ -54,19 +55,13 @@ public class ObeliskRangeIndicator : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        // Continuously update the range circle to follow the obelisk
-        if (obelisk != null && lineRenderer.enabled)
-        {
-            DrawRangeCircle();
-        }
-    }
+    
 
-    void DrawRangeCircle()
+    public void DrawRangeCircle(Vector3 center)
     {
         // Set center position based on the obelisk's current position with offset
-        Vector3 center = obelisk.transform.position + offset;
+       
+        //Vector3 center = obelisk.transform.position + offset;
         float angle = 0f;
         for (int i = 0; i <= segments; i++)
         {

@@ -37,7 +37,7 @@ public class Obelisk : BaseBuilding
         if (!isDead)
         {
           
-            SendMessageUpwards("ActivateRangeIndicator", SendMessageOptions.DontRequireReceiver);
+            SendMessageUpwards("ActivateRangeIndicator",transform.position, SendMessageOptions.DontRequireReceiver);
             
             if (currentTarget == null) FindTarget();
             if (currentTarget != null)
