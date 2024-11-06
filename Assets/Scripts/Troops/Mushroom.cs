@@ -33,11 +33,28 @@ public class Mushroom : BaseTroop
             if (enemy != null)
             {
                 float distance = Vector3.Distance(transform.position, enemy.transform.position);
-                if (distance < closestDistance && !enemy.GetComponent<BaseBuilding>().isDead)
+                BaseBuilding building = enemy.GetComponent<BaseBuilding>();
+        if (building != null && !building.isDead)
+        {
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                currentTarget = enemy.transform;
+            }
+        }
+        else
+        {
+            // Check if the enemy is a troop and is not dead
+            BaseTroop troop = enemy.GetComponent<BaseTroop>();
+            if (troop != null && troop.health > 0)
+            {
+                if (distance < closestDistance)
                 {
                     closestDistance = distance;
                     currentTarget = enemy.transform;
                 }
+            }
+        }
             }
             
         }

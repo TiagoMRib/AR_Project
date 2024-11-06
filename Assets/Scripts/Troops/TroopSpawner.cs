@@ -57,7 +57,7 @@ public class TroopSpawner : MonoBehaviour
         if (!cardDetected)
         {
             // Instead of destroying, deactivate this GameObject
-            gameObject.SetActive(false);
+            gameObject.SetActive(false); //
         }
         else
         {

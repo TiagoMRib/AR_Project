@@ -128,7 +128,7 @@ public class Golem : BaseTroop
                 }
 
                 // Deal damage
-                yield return new WaitForSeconds(3.5f);
+                yield return new WaitForSeconds(2.5f);
                 building.TakeDamage(damage);
                 Debug.Log("Golem deals " + damage + " damage to " + building.buildingName);
                 hits++;
