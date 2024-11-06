@@ -1,6 +1,6 @@
 using UnityEngine;
 using Vuforia;
-using UnityEngine.AI; 
+using UnityEngine.AI;
 using System.Collections;
 using TMPro;
 
@@ -18,7 +18,9 @@ public class RoadBlockCard : MonoBehaviour
     private bool cardDetected = false;
     private bool gameRunning = false;
     private GameObject spawnedRoadBlock = null;
-    private bool isPlacedOnBridge = false;
+
+    // Y Position for roadblock alignment (set this to match the height of the river and bridges)
+    public float yAlignmentPosition = 0.5f;
 
     void Start()
     {
@@ -43,8 +45,6 @@ public class RoadBlockCard : MonoBehaviour
             cardCanvas.gameObject.SetActive(false);
         }
     }
-
-
 
     void OnDestroy()
     {
@@ -91,27 +91,24 @@ public class RoadBlockCard : MonoBehaviour
     }
 
     private void TryPlaceRoadBlock()
-{
-    if (cardDetected && gameRunning && roadBlockPrefab != null && spawnedRoadBlock == null)
     {
-        // Check if the player has enough mana
-        if (GameManager.Instance.CanSpendMana(manaCost))
+        Debug.Log("Trying to place RoadBlock");
+        if (cardDetected && gameRunning && roadBlockPrefab != null && spawnedRoadBlock == null)
         {
-            Vector3 placementPosition = transform.position;
-            
-            // Assume IsAboveBridge() is used for bridge detection (you can uncomment if working)
-            // if (IsAboveBridge(placementPosition))
-            // {
-                isPlacedOnBridge = true;
-                statusText.text = ""; // Clear any warning message
+            // Check if the player has enough mana
+            if (GameManager.Instance.CanSpendMana(manaCost))
+            {
+                Vector3 placementPosition = transform.position;
+                
+                // Adjust Y position to match river and bridges
+                placementPosition.y = yAlignmentPosition;
 
                 // Deduct the mana
                 GameManager.Instance.ManaSystem.SpendMana(manaCost);
-                
+
                 // Instantiate the roadblock
                 spawnedRoadBlock = Instantiate(roadBlockPrefab, placementPosition, transform.rotation);
                 spawnedRoadBlock.transform.SetParent(transform); // Parent to the card
-                spawnedRoadBlock.transform.localPosition = new Vector3(0, 0.1f, 0); // Adjust Y position
                 spawnedRoadBlock.SetActive(true);
 
                 // Add NavMeshObstacle component to the roadblock
@@ -120,39 +117,18 @@ public class RoadBlockCard : MonoBehaviour
                 navObstacle.size = new Vector3(1f, 1f, 1f); // Adjust size as needed
 
                 StartCoroutine(HealthDecay());
-            // }
-            // else
-            // {
-            //     statusText.text = "Place the roadblock above a bridge";
-            // }
-        }
-        else
-        {
-            // Display a message if there is not enough mana
-            if (statusText != null)
-            {
-                statusText.text = $"-{manaCost} Mana";
-                statusText.color = Color.red;
             }
-            Debug.Log("Not enough mana to place the RoadBlock.");
-        }
-    }
-}
-
-    private bool IsAboveBridge(Vector3 position) // not working
-    {
-        // Perform a raycast downward to check if the object is above a bridge
-        RaycastHit hit;
-        if (Physics.Raycast(position, Vector3.down, out hit, Mathf.Infinity))
-        {
-            if (hit.collider.CompareTag("Bridge"))
+            else
             {
-                Debug.Log("Roadblock placed above bridge");
-                return true;
+                // Display a message if there is not enough mana
+                if (statusText != null)
+                {
+                    statusText.text = $"-{manaCost} Mana";
+                    statusText.color = Color.red;
+                }
+                Debug.Log("Not enough mana to place the RoadBlock.");
             }
         }
-        Debug.Log("Roadblock not placed above bridge");
-        return false;
     }
 
     private IEnumerator HealthDecay()
@@ -160,14 +136,12 @@ public class RoadBlockCard : MonoBehaviour
         while (health > 0)
         {
             health -= healthDecayRate * Time.deltaTime;
-            //Debug.Log("RoadBlock Health: " + health);
             yield return null;
         }
 
         // When health reaches zero, destroy the roadblock
         if (spawnedRoadBlock != null)
         {
-            
             Debug.Log("RoadBlock Died");
             Destroy(spawnedRoadBlock);
             spawnedRoadBlock = null;
