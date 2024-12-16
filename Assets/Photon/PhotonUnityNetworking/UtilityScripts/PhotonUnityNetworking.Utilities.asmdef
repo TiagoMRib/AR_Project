@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "name": "PhotonUnityNetworking.Utilities",
     "references": [
@@ -8,4 +9,16 @@
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false
+=======
+{
+    "name": "PhotonUnityNetworking.Utilities",
+    "references": [
+        "PhotonRealtime",
+        "PhotonUnityNetworking"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+>>>>>>> 41765e529d69567fde358780eeee7b323ac1420d
 }

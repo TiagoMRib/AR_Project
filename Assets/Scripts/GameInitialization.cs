@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Vuforia;
 
 public class GameInitialization : MonoBehaviour
@@ -58,7 +59,6 @@ public class GameInitialization : MonoBehaviour
         {
             // The Image Target is no longer visible
             cardDetected = false;
-            StopGame();
         }
 
         UpdateUIVisibility();
@@ -69,22 +69,64 @@ public class GameInitialization : MonoBehaviour
     {
         Debug.Log("Game started!");
         gameStarted = true;
+
+        // Parent the arena to the card to keep it fixed relative to the card
+        if (arenaPrefab != null)
+        {
+            arenaPrefab.transform.SetParent(transform, worldPositionStays: true);
+            arenaPrefab.SetActive(true);
+        }
+
         UpdateUIVisibility();
         GameManager.Instance.StartMatch(); // Start the game logic
     }
 
-    // Stops the game
-    private void StopGame()
+    // Stops the game and handles end-game behavior
+    public void StopGame(string winner)
     {
+        DestroyAllTroopsInLayer(7);
+        DestroyAllTroopsInLayer(8);
         gameStarted = false;
         UpdateUIVisibility();
-        GameManager.Instance.EndMatch(); // Change later to pause?
+        GameManager.Instance.EndMatch();
+
+        if (winner == "Team1")
+        {
+            Debug.Log("You Win!");
+            SceneManager.LoadScene("Win");
+        }
+        else if (winner == "Team2")
+        {
+            Debug.Log("You Lose!");
+            SceneManager.LoadScene("Defeat");
+        }
+        else if (winner == "Draw")
+        {
+            // Do nothing; game is simply paused or awaiting a decision
+            return;
+        }
+    }
+
+    // Destroys all troops in a specified layer
+    public void DestroyAllTroopsInLayer(int layer)
+    {
+        GameObject[] allObjects = FindObjectsOfType<GameObject>();
+
+        foreach (GameObject obj in allObjects)
+        {
+            if (obj.layer == layer)
+            {
+                Destroy(obj);
+            }
+        }
+
+        Debug.Log("All troops in layer " + layer + " have been destroyed.");
     }
 
     // Handles UI visibility based on card detection and game state
     private void UpdateUIVisibility()
     {
-        if (arenaPrefab) arenaPrefab.SetActive(gameStarted && cardDetected);
+        if (arenaPrefab) arenaPrefab.SetActive(true); // Keep the arena active
         if (startGameCanvas) startGameCanvas.gameObject.SetActive(!gameStarted && cardDetected);
     }
 

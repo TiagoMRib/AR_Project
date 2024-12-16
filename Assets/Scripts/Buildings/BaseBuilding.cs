@@ -13,8 +13,10 @@ public abstract class BaseBuilding : MonoBehaviour
 
     public string teamTag;  
     public string enemyTeamTag;
-    
     public bool isDead = false;
+
+    [Header("Mana Reward Settings")]
+    public float manaReward = 50f;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -22,10 +24,6 @@ public abstract class BaseBuilding : MonoBehaviour
         enemyTeamTag = (teamTag == "Team1") ? "Team2" : "Team1";
 
         currentHealth = maxHealth;
-        if (isDefensiveBuilding)
-        {
-            StartCoroutine(AttackRoutine());
-        }
     }
 
     // Update is called once per frame
@@ -44,6 +42,7 @@ public abstract class BaseBuilding : MonoBehaviour
         
         if (currentHealth <= 0f)
         {
+            
             Die();
         }
     }
@@ -67,7 +66,32 @@ public abstract class BaseBuilding : MonoBehaviour
     protected virtual void Die()
     {
         isDead = true;
-        //Destroy(gameObject);  // Remove the building from the scene
+
+        if (buildingName != null && buildingName.ToLower().Contains("castle"))
+        {
+            //gameInitialization.StopGame();
+            Debug.Log("Castle destroyed.");
+            Debug.Log("name:"+buildingName);
+            if (buildingName == "Main Castle")
+            {
+                Debug.Log("Enemy building destroyed.");
+                GameManager.Instance?.gameInitialization.StopGame("Team1");
+            }
+            if (buildingName == "Player Castle")
+            {
+                Debug.Log("Player destroyed.");
+                GameManager.Instance?.gameInitialization.StopGame("Team2");
+            }
+            
+        }
+        // Check if this building belongs to the enemy team
+        if (teamTag == "Team2")
+        {
+            // Award mana to the player
+            GameManager.Instance?.ManaSystem.GainMana(manaReward);
+        }
+
+        Destroy(gameObject);  // Remove the building from the scene
     }
 }
 

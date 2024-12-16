@@ -4,11 +4,13 @@ public class Projectile : MonoBehaviour
 {
     private Transform target; // The target the projectile will hit
     private float speed; // Speed of the projectile
+    private float damage = 10; // Damage dealt by the projectile
 
-    public void SetTarget(Transform target, float speed)
+    public void SetTarget(Transform target, float speed, float damage)
     {
         this.target = target;
         this.speed = speed;
+        this.damage = damage;
         Destroy(gameObject, 5f); // Destroy the projectile after 5 seconds if it doesn't hit anything
     }
 
@@ -26,7 +28,7 @@ public class Projectile : MonoBehaviour
                 BaseBuilding building = target.GetComponent<BaseBuilding>();
                 if (building != null && !building.isDead)
                 {
-                    building.TakeDamage(10); // Deal 10 damage (modify as needed)
+                    building.TakeDamage(damage); 
                 }
 
                 // Destroy the projectile after hitting

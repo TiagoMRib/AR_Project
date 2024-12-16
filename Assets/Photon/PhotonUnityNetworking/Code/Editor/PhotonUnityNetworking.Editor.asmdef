@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "name": "PhotonUnityNetworking.Editor",
     "references": [
@@ -10,4 +11,18 @@
     ],
     "excludePlatforms": [],
     "allowUnsafeCode": false
+=======
+{
+    "name": "PhotonUnityNetworking.Editor",
+    "references": [
+        "PhotonRealtime",
+        "PhotonUnityNetworking"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+>>>>>>> 41765e529d69567fde358780eeee7b323ac1420d
 }

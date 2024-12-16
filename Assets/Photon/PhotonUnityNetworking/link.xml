@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <linker>
   <assembly fullname="mscorlib">
     <namespace fullname="System.Security.Cryptography" preserve="all"/>
@@ -11,4 +12,19 @@
   <assembly fullname="Photon3Unity3d">
     <namespace fullname="ExitGames.Client.Photon" preserve="all"/>
   </assembly>
+=======
+<linker>
+  <assembly fullname="mscorlib">
+    <namespace fullname="System.Security.Cryptography" preserve="all"/>
+  </assembly>
+  <assembly fullname="System">
+    <namespace fullname="System.Net.Configuration" preserve="all"/>
+  </assembly>
+  <assembly fullname="System">
+    <namespace fullname="System.ComponentModel" preserve="all"/>
+  </assembly>
+  <assembly fullname="Photon3Unity3d">
+    <namespace fullname="ExitGames.Client.Photon" preserve="all"/>
+  </assembly>
+>>>>>>> 41765e529d69567fde358780eeee7b323ac1420d
 </linker>

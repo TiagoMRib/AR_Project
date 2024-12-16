@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "name": "PunDemos.DemoHubEditor",
     "references": [
@@ -8,4 +9,16 @@
         "Editor"
     ],
     "excludePlatforms": []
+=======
+{
+    "name": "PunDemos.DemoHubEditor",
+    "references": [
+        "PhotonUnityNetworking",
+        "PhotonRealtime"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": []
+>>>>>>> 41765e529d69567fde358780eeee7b323ac1420d
 }

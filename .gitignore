@@ -6,6 +6,9 @@ Logs/
 MemoryCaptures/
 Build/
 
+Builds/*.apk
+Packages.zip
+
 # Asset packages
 *.tgz
 *.unitypackage

@@ -8,6 +8,9 @@ TagManager:
   - Team2
   - Waypoint
   - Bridge
+  - Building
+  - Troop
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -15,10 +18,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - PlayerTroop
+  - AITroop
+  - PlayerBuilding
   - 
   - 
   - 

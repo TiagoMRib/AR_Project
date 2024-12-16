@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.AI;
 
 public abstract class BaseTroop : MonoBehaviour
 {
@@ -20,13 +21,18 @@ public abstract class BaseTroop : MonoBehaviour
 
     protected Animator animator;
 
+    public NavMeshAgent agent;
     public List<Transform> pathPoints = new List<Transform>();
+
+    [Header("Mana Reward Settings")]
+    public float manaReward = 10f;
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        enemyTeamTag = (teamTag == "Team1") ? "Team2" : "Team1";
+        
         animator = GetComponentInChildren<Animator>();
+        Debug.Log("Animator found: " + animator);
         FindTarget();
     }
 
@@ -68,84 +74,19 @@ public abstract class BaseTroop : MonoBehaviour
     {
         if (flyer)
         {
+            Debug.Log("Movement: " + gameObject.name + " is flying towards the target.");
             BaseMovement();
         }
         else
         {
-            if (IsTargetAcrossRiver())
-            {
-                if (pathPoints.Count == 0)
-                {
-                    FindBridgePath();
-                }
-
-                if (pathPoints.Count > 0)
-                {
-                    Transform nextPoint = pathPoints[0];
-                    float step = speed * Time.deltaTime;
-                    transform.position = Vector3.MoveTowards(transform.position, nextPoint.position, step);
-
-                    if (Vector3.Distance(transform.position, nextPoint.position) < 0.1f)
-                    {
-                        pathPoints.RemoveAt(0);
-                    }
-                }
-            }
-            else
-            {
-                BaseMovement();
-            }
+            Debug.Log("Movement: " + gameObject.name + " is moving towards the target.");
+            agent.SetDestination(currentTarget.position);
         }
     }
 
-    private bool IsTargetAcrossRiver()
-    {
-        return Mathf.Abs(transform.position.z) < 3 && Mathf.Abs(currentTarget.position.z) > 3 || 
-               Mathf.Abs(transform.position.z) > 3 && Mathf.Abs(currentTarget.position.z) < 3;
-    }
+ 
 
-    private void FindBridgePath()
-{
-    GameObject[] bridges = GameObject.FindGameObjectsWithTag("Bridge");
-
-    if (bridges.Length == 0)
-    {
-        Debug.LogWarning("No bridges found in the scene.");
-        return;
-    }
-
-    float closestDistance = Mathf.Infinity;
-    GameObject closestBridge = null;
-
-    foreach (GameObject bridge in bridges)
-    {
-        float distance = Vector3.Distance(transform.position, bridge.transform.position);
-        if (distance < closestDistance)
-        {
-            closestDistance = distance;
-            closestBridge = bridge;
-        }
-    }
-
-    // If a closest bridge is found, add its start and end points to path points
-    if (closestBridge != null)
-    {
-        // Assuming the bridge has a script that defines its start and end points
-        Bridge bridgeScript = closestBridge.GetComponent<Bridge>(); // Replace Bridge with your actual bridge script
-
-        if (bridgeScript != null)
-        {
-            // Move towards the start of the bridge first
-            pathPoints.Add(bridgeScript.startPoint); // Assumes startPoint is a Transform
-            pathPoints.Add(bridgeScript.endPoint);   // Assumes endPoint is a Transform
-            pathPoints.Add(currentTarget);            // Move towards the original target after crossing
-        }
-        else
-        {
-            Debug.LogWarning("Bridge script not found on the closest bridge.");
-        }
-    }
-}
+   
 
     public virtual void TakeDamage(float amount)
     {
@@ -159,6 +100,13 @@ public abstract class BaseTroop : MonoBehaviour
     protected virtual void Die()
     {
         Debug.Log(gameObject.name + " died.");
+
+        if (teamTag == "Team2")
+        {
+            // Award mana to the player
+            GameManager.Instance?.ManaSystem.GainMana(manaReward);
+        }
+
         Destroy(gameObject);
     }
 

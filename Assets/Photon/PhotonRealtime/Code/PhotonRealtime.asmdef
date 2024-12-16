@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 {
     "name": "PhotonRealtime",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": []
+=======
+{
+    "name": "PhotonRealtime",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": []
+>>>>>>> 41765e529d69567fde358780eeee7b323ac1420d
 }

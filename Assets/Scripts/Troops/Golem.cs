@@ -27,8 +27,13 @@ public class Golem : BaseTroop
         foreach (GameObject enemy in enemyObjects)
         {
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distance < closestDistance && !enemy.GetComponent<BaseBuilding>().isDead)
+
+            Debug.Log("Golem Enemy:" + enemy);
+           
+            Debug.Log("Golem Enemy: " + enemy.name + " is " + distance + " units away, in position: " + enemy.transform.position);
+            if (distance < closestDistance && !enemy.GetComponent<BaseBuilding>().isDead) //ERROR IN THIS LINE
             {
+                
                 closestDistance = distance;
                 currentTarget = enemy.transform;
             }
@@ -39,22 +44,31 @@ public class Golem : BaseTroop
 
     protected override void Update()
     {
+        
         // Check if Golem is moving towards the target
         if (currentTarget != null)
         {
+            float distanceToTarget = Vector3.Distance(transform.position, currentTarget.position);
             // Move towards the target
-            MoveTowardsTarget();
-
-            // Trigger walking animation if moving
-            if (!isAttacking)
+            if (distanceToTarget > attackRange)
             {
-                animator.SetBool("IsWalking", true); // Set walking animation
+                MoveTowardsTarget();
+                FindTarget();
+                animator.SetBool("isWalking", true);
             }
+            else if (!isAttacking)
+            {
+                Attack();
+                animator.SetBool("isWalking", false);
+            }
+            
         }
         else
         {
             // If no target, stop the walking animation
-            animator.SetBool("IsWalking", false);
+            Debug.Log("No target in update golem");
+            FindTarget();
+            animator.SetBool("isWalking", false);
         }
     }
 
@@ -65,7 +79,7 @@ public class Golem : BaseTroop
         {
             base.MoveTowardsTarget();
             // When Golem reaches the target, stop walking
-            animator.SetBool("IsWalking", false);
+            animator.SetBool("isWalking", false);
         }
             
         
@@ -115,6 +129,7 @@ public class Golem : BaseTroop
                 }
 
                 // Deal damage
+                yield return new WaitForSeconds(2.5f);
                 building.TakeDamage(damage);
                 Debug.Log("Golem deals " + damage + " damage to " + building.buildingName);
                 hits++;
@@ -128,8 +143,9 @@ public class Golem : BaseTroop
                 }
 
                 // Deal damage
-                building.TakeDamage(damage * 2); // Assuming Hammer Attack does more damage
-                Debug.Log("Golem performs a hammer attack, dealing " + (damage * 2) + " damage to " + building.buildingName);
+                yield return new WaitForSeconds(2.5f);
+                building.TakeDamage(damage * 1.5f); // Hammer Attack does more damage
+                Debug.Log("Golem performs a hammer attack, dealing " + (damage * 1.5f) + " damage to " + building.buildingName);
                 hits = 0; // Reset hits after hammer attack
             }
 

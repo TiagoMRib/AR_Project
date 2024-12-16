@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "name": "PhotonChat",
     "references": [],
@@ -9,4 +10,17 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": []
+=======
+{
+    "name": "PhotonChat",
+    "references": [],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+>>>>>>> 41765e529d69567fde358780eeee7b323ac1420d
 }

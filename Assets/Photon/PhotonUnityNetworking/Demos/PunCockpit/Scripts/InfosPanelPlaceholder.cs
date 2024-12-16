@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿// <copyright file="PlayerDetailsController.cs" company="Exit Games GmbH">
 //   Part of: Pun Cockpit
 // </copyright>
@@ -22,3 +23,29 @@ namespace Photon.Pun.Demo.Cockpit
         }
     }
 }
+=======
+﻿// <copyright file="PlayerDetailsController.cs" company="Exit Games GmbH">
+//   Part of: Pun Cockpit
+// </copyright>
+// <author>developer@exitgames.com</author>
+// --------------------------------------------------------------------------------------------------------------------
+
+using UnityEngine;
+
+namespace Photon.Pun.Demo.Cockpit
+{
+    /// <summary>
+    /// Infos panel placeholder. Defines the place where the infos panel should go. It will request InfoPanel when Component is enabled.
+    /// </summary>
+    public class InfosPanelPlaceholder : MonoBehaviour
+    {
+        public PunCockpit Manager;
+
+        // Use this for initialization
+        void OnEnable()
+        {
+            Manager.RequestInfosPanel(this.gameObject);
+        }
+    }
+}
+>>>>>>> 41765e529d69567fde358780eeee7b323ac1420d
